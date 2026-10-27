@@ -13,8 +13,8 @@ SITE = {
     "short": "Construction × Technology",
     # Contact form posts JSON here (Formspree, Web3Forms, or any endpoint that emails you).
     # Leave empty and the form shows a "not connected yet" message instead of sending.
-    "form_endpoint": "",
-    "form_access_key": "",            # only needed for Web3Forms-style services
+    "form_endpoint": "https://api.web3forms.com/submit",
+    "form_access_key": "64d91210-2438-492f-b24b-106226c43913",   # Web3Forms public key (safe to publish)
     "year": "2026",
 }
 
@@ -109,7 +109,7 @@ def build():
 
 
 BOXING = """<section class="dark uc" style="padding:0">
-  <div class="uc-flag" role="note"><span>Under construction</span><span>This section isn&rsquo;t finished yet</span></div>
+  <div class="uc-flag" role="note"><div><b>Under construction</b><small>This section isn&rsquo;t finished yet</small></div></div>
   <div class="wrap" style="display:grid;grid-template-columns:1.2fr 1fr;gap:0;align-items:stretch" id="bx">
     <img src="img/boxing.jpg" alt="Gilad landing a jab in a boxing bout" loading="lazy" style="width:100%;height:100%;min-height:340px;object-fit:cover;filter:grayscale(1) contrast(1.2)">
     <div style="padding:clamp(24px,5vw,72px);align-self:center">
