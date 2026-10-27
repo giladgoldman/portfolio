@@ -388,8 +388,11 @@ section.dark :focus-visible { outline-color: var(--accent-dark); }
 .svc.free .mono, .svc.free .svc-body .mono { color: var(--accent-ink); }
 .svc.free .ticks li::before { background: var(--accent-ink); }
 
-/* under-construction flag (About S10-S13, copy still being decided) */
-.uc { position: relative; }
-.uc-flag { position: absolute; top: 14px; right: 14px; z-index: 5; display: flex; flex-direction: column; gap: .15rem; padding: .55rem .9rem; font: 700 .68rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); background: repeating-linear-gradient(-45deg, #ffd60a 0 14px, #0e0e0d 14px 28px); border: 2px solid #0e0e0d; box-shadow: 4px 4px 0 var(--ink); transform: rotate(2deg); }
-.uc-flag span { background: #ffd60a; padding: .1rem .4rem; }
-.uc-flag span + span { font-weight: 400; }
+/* under-construction overlay (About S10-S13, copy still being decided): content stays faintly visible behind it */
+.uc { position: relative; overflow: hidden; }
+.uc-flag { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; padding: 1rem; background: color-mix(in srgb, var(--paper) 72%, transparent); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+.dark.uc .uc-flag { background: color-mix(in srgb, var(--ink) 72%, transparent); }
+.uc-flag > div { transform: rotate(-3deg); width: min(100%, 900px); text-align: center; padding: 1.2rem 1rem 1rem; background: #ffd60a; color: #0e0e0d; border: 3px solid #0e0e0d; box-shadow: 8px 8px 0 #0e0e0d; outline: 14px solid #ffd60a; outline-offset: 0; background-image: repeating-linear-gradient(-45deg, #ffd60a 0 18px, #0e0e0d 18px 36px); background-clip: padding-box; }
+.uc-flag b, .uc-flag small { display: block; background: #ffd60a; margin: 0 auto; width: fit-content; padding: .1rem .8rem; }
+.uc-flag b { font: 900 clamp(1.6rem, 5vw, 3.4rem)/1.05 var(--display); font-stretch: 125%; letter-spacing: -.02em; text-transform: uppercase; }
+.uc-flag small { font: 700 .75rem var(--mono); letter-spacing: .1em; text-transform: uppercase; padding-bottom: .3rem; }

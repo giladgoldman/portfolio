@@ -24,6 +24,8 @@ if (form) {
     const data = Object.fromEntries(new FormData(form));
     if (data._gotcha) return;                       // honeypot: bots fill this in
     if (!data.name || !data.email || !data.message) return say('Please fill in your name, email and a message.', false);
+    const cap = form.querySelector('textarea[name=h-captcha-response]');
+    if (cap && !cap.value) return say('Please tick the "I am human" box first.', false);
     const endpoint = form.dataset.endpoint;
     if (!endpoint) return say('This form is not connected yet (preview only), so nothing was sent.', false);
     const btn = form.querySelector('button[type=submit]');
