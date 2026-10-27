@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get in touch · Gilad Goldman</title>
+<meta name="description" content="Send Gilad a message about a construction technology problem, a tool, or a project.">
+<meta name="theme-color" content="#0e0e0d">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Archivo-100-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Gilad Goldman home">Gilad Goldman</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html#register">Work</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="right">
+      <span class="clock" aria-hidden="true"></span>
+      <a class="btn sm" href="contact.html">Get in touch <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="tp-head">
+  <div class="wrap">
+    <a class="back mono" href="index.html"><span class="arr back">&larr;</span> Home</a>
+    <div class="tp-grid">
+      <h1 class="display">Get in<br><em>touch</em></h1>
+      <p class="lede" style="margin-bottom:1.6rem">Tell me what&rsquo;s slowing your team down. I&rsquo;ll tell you honestly if a tool can fix it. Looking for something specific? <a href="services.html" class="ext">See what I offer</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <form class="contact" id="contact-form" data-endpoint="" novalidate>
+      
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Company<input name="company" autocomplete="organization"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>What&rsquo;s it about?
+        <select name="topic">
+          <option data-k="startup">Startup sounding board (free 30 minutes)</option>
+          <option data-k="tools">Tool building / digital innovation</option>
+          <option data-k="iso">ISO consulting</option>
+          <option data-k="strategy">Strategic consulting</option>
+          <option data-k="hiring">Hiring me</option>
+          <option data-k="other" selected>Something else</option>
+        </select>
+      </label>
+      <label>Message<textarea name="message" rows="6" required></textarea></label>
+      <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn" type="submit">Send message <span class="arr">&rarr;</span></button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+    <div>
+      <ul class="caps rv">
+        <li><div><strong>Read by me</strong>Messages go straight to my inbox. No gatekeepers, no auto-replies.</div></li>
+        <li><div><strong>A real reply</strong>I&rsquo;ll get back to you within a couple of business days.</div></li>
+        <li><div><strong>An honest answer</strong>If a tool can&rsquo;t help, I&rsquo;ll say so.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+<section class="cta">
+  <div class="wrap">
+    <p class="mono">Got a problem on site, in the office, or in the spreadsheet?</p>
+    <a class="big display" href="contact.html">Let&rsquo;s talk<span class="arr u">&rarr;</span></a>
+    <div class="row">
+      <p style="max-width:40ch;margin:0">Tell me what&rsquo;s slowing your team down. I&rsquo;ll tell you honestly if a tool can fix it.</p>
+      <a class="btn" href="contact.html">Get in touch <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Gilad Goldman</span>
+    <span>Construction × Technology</span>
+    <span><a href="index.html#register">Work</a> &nbsp;/&nbsp; <a href="services.html">Services</a> &nbsp;/&nbsp; <a href="about.html">About</a> &nbsp;/&nbsp; <a href="contact.html">Contact</a></span>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

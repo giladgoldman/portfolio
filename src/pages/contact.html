@@ -1,0 +1,44 @@
+<!-- title: Get in touch -->
+<!-- desc: Send Gilad a message about a construction technology problem, a tool, or a project. -->
+
+<section class="tp-head">
+  <div class="wrap">
+    <a class="back mono" href="index.html"><span class="arr back">&larr;</span> Home</a>
+    <div class="tp-grid">
+      <h1 class="display">Get in<br><em>touch</em></h1>
+      <p class="lede" style="margin-bottom:1.6rem">Tell me what&rsquo;s slowing your team down. I&rsquo;ll tell you honestly if a tool can fix it. Looking for something specific? <a href="services.html" class="ext">See what I offer</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <form class="contact" id="contact-form" data-endpoint="{{endpoint}}" novalidate>
+      {{access_key}}
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Company<input name="company" autocomplete="organization"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>What&rsquo;s it about?
+        <select name="topic">
+          <option data-k="startup">Startup sounding board (free 30 minutes)</option>
+          <option data-k="tools">Tool building / digital innovation</option>
+          <option data-k="iso">ISO consulting</option>
+          <option data-k="strategy">Strategic consulting</option>
+          <option data-k="hiring">Hiring me</option>
+          <option data-k="other" selected>Something else</option>
+        </select>
+      </label>
+      <label>Message<textarea name="message" rows="6" required></textarea></label>
+      <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn" type="submit">Send message <span class="arr">&rarr;</span></button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+    <div>
+      <ul class="caps rv">
+        <li><div><strong>Read by me</strong>Messages go straight to my inbox. No gatekeepers, no auto-replies.</div></li>
+        <li><div><strong>A real reply</strong>I&rsquo;ll get back to you within a couple of business days.</div></li>
+        <li><div><strong>An honest answer</strong>If a tool can&rsquo;t help, I&rsquo;ll say so.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>

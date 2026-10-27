@@ -1,0 +1,116 @@
+<!-- title: Accounts Ingestion + Rate Library -->
+<!-- desc: Reads supplier and subcontractor accounts, codes every line to your cost structure, and builds a library of real, project-proven rates. -->
+
+<section class="tp-head">
+  <div class="wrap">
+    <a class="back mono" href="index.html#register"><span class="arr back">&larr;</span> Home</a>
+    <div class="tp-grid">
+      <h1 class="display">Accounts<br>Ingestion<br><em>+ Rate Library</em></h1>
+      <div>
+        <p class="lede" style="margin-bottom:1.6rem">Your accounts hold the most honest pricing data you&rsquo;ll ever own. This reads it, codes it, and turns it into rates you can price the next job with.</p>
+        <dl class="titleblock">
+          <div><dt>Tool</dt><dd>001 / Cost &amp; commercial</dd></div>
+          <div><dt>Role</dt><dd>Designed + built</dd></div>
+          <div><dt>Inputs</dt><dd>Invoices, claims, statements</dd></div>
+          <div><dt>Outputs</dt><dd>Coded lines, rate library</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sheet-label"><b>01</b> Ingestion in action</div>
+    <div class="scr rv">
+      <div class="scr-bar"><i></i><i></i><i></i><span>accounts-ingestion / batch wk-12 / INV-20418</span><em>3 need review</em></div>
+      <div class="split">
+        <div>
+          <p class="mono" style="color:#8d897f;margin:0 0 .6rem">Source document</p>
+          <div class="doc">
+            <h5>Tax invoice &middot; Supplier A</h5>
+            <div class="ln"><span>Description</span><span>Amount</span></div>
+            <div class="ln hl"><span>N32 concrete, pump, L2 slab &nbsp; 42 m&sup3; @ 310.00</span><span>13,020.00</span></div>
+            <div class="ln hl2"><span>Reo fix &amp; supply, L2 slab &nbsp; 6.8 t @ 3,150.00</span><span>21,420.00</span></div>
+            <div class="ln"><span>Pump standing time</span><span>480.00</span></div>
+            <div class="ln"><span>Fuel levy</span><span>95.00</span></div>
+            <div class="ln" style="border-top:1px solid #999;margin-top:.5rem"><span><b>Total ex GST</b></span><span><b>35,015.00</b></span></div>
+          </div>
+        </div>
+        <div>
+          <p class="mono" style="color:#8d897f;margin:0 0 .6rem">Extracted &amp; coded</p>
+          <table>
+            <tr><th>Line</th><th>Cost code</th><th class="num">Qty</th><th class="num">Rate</th><th>Conf.</th></tr>
+            <tr><td>N32 concrete, pump</td><td class="mono-s">03.30 In-situ conc.</td><td class="num">42 m&sup3;</td><td class="num">310.00</td><td><span class="tag g">98%</span></td></tr>
+            <tr><td>Reo fix &amp; supply</td><td class="mono-s">03.20 Reinforcement</td><td class="num">6.8 t</td><td class="num">3,150</td><td><span class="tag g">96%</span></td></tr>
+            <tr><td>Pump standing time</td><td class="mono-s">03.30 In-situ conc.</td><td class="num">1</td><td class="num">480.00</td><td><span class="tag a">71%</span></td></tr>
+            <tr><td>Fuel levy</td><td class="mono-s" style="color:#6f6b62">Unassigned</td><td class="num">1</td><td class="num">95.00</td><td><span class="tag r">Human</span></td></tr>
+          </table>
+          <p class="mono" style="color:#8d897f;margin:1rem 0 .4rem">Totals check</p>
+          <div class="bar"><b style="width:100%"></b></div>
+          <p class="mono" style="color:#e9e7e1;margin:.4rem 0 0">Lines sum to invoice total &#10003;</p>
+        </div>
+      </div>
+      <div class="cap">Illustrative sample data</div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap two">
+    <div>
+      <div class="sheet-label"><b>02</b> What it does</div>
+      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">From a pile of PDFs to a pricing asset.</h2>
+    </div>
+    <ol class="caps rv" style="border-top-color:var(--paper)">
+      <li><div><strong>Ingest anything</strong>Invoices, progress claims and statements by upload or inbox, in whatever format suppliers send.</div></li>
+      <li><div><strong>Extract with receipts</strong>Every line gets quantity, unit, rate and total, with the source location kept so any figure can be traced back.</div></li>
+      <li><div><strong>Code to your structure</strong>Lines map to your cost codes. Low confidence goes to a person, never silently guessed, and corrections teach it.</div></li>
+      <li><div><strong>Check the maths</strong>Line items are reconciled against invoice totals so errors surface before they reach the ledger.</div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sheet-label"><b>03</b> Rate library</div>
+    <div class="scr rv">
+      <div class="scr-bar"><i></i><i></i><i></i><span>rate-library / 03 Concrete</span><em>312 data points</em></div>
+      <div class="scr-body">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem">
+          <span class="tag o">Trade: Concrete</span><span class="tag k">Region: VIC</span><span class="tag k">Last 24 mo</span><span class="tag k">Project type: Commercial</span>
+        </div>
+        <table>
+          <tr><th>Item</th><th>Unit</th><th>Range &middot; median</th><th class="num">Low</th><th class="num">Median</th><th class="num">High</th><th class="num">n</th></tr>
+          <tr><td>N32 supply &amp; place</td><td class="mono-s">m&sup3;</td><td><div class="rng"><i style="left:12%;right:20%"></i><b style="left:48%"></b></div></td><td class="num">285</td><td class="num">305</td><td class="num">340</td><td class="num">38</td></tr>
+          <tr><td>Reo supply &amp; fix</td><td class="mono-s">t</td><td><div class="rng"><i style="left:8%;right:14%"></i><b style="left:55%"></b></div></td><td class="num">2,950</td><td class="num">3,150</td><td class="num">3,500</td><td class="num">21</td></tr>
+          <tr><td>Formwork, slab edge</td><td class="mono-s">m</td><td><div class="rng"><i style="left:20%;right:10%"></i><b style="left:50%"></b></div></td><td class="num">48</td><td class="num">56</td><td class="num">66</td><td class="num">44</td></tr>
+          <tr><td>Concrete pump, boom</td><td class="mono-s">hr</td><td><div class="rng"><i style="left:5%;right:30%"></i><b style="left:35%"></b></div></td><td class="num">210</td><td class="num">235</td><td class="num">290</td><td class="num">29</td></tr>
+        </table>
+        <div style="margin-top:1rem;padding:.8rem;border:1px solid var(--accent-dark)">
+          <span class="mono" style="color:var(--accent-dark)">Trace</span> &nbsp; Click any median to open the invoices behind it: <span class="mono-s">38 lines &middot; 9 suppliers &middot; 14 projects</span>
+        </div>
+      </div>
+      <div class="cap">Illustrative sample data. Not real market rates.</div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap two">
+    <div>
+      <div class="sheet-label"><b>04</b> Why it matters</div>
+      <p class="statement rv">Price from what you actually paid, not what the schedule says.</p>
+    </div>
+    <ul class="caps rv" style="border-top-color:var(--paper)">
+      <li><div><strong>Estimating</strong>Defensible rates with ranges, not one estimator&rsquo;s memory.</div></li>
+      <li><div><strong>Variations</strong>Evidence-backed pricing when the scope moves.</div></li>
+      <li><div><strong>Finance</strong>Hours of re-keying and coding become a review task.</div></li>
+    </ul>
+  </div>
+</section>
+
+<nav class="pager" aria-label="Tools">
+  <a href="index.html#register"><span class="mono mute">Back</span><span class="t">Index</span></a>
+  <a href="methodology-builder.html"><span class="mono mute">Next tool 002</span><span class="t">Methodology Builder <span class="arr">&rarr;</span></span></a>
+</nav>
