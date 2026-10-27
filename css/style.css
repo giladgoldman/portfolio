@@ -387,3 +387,9 @@ section.dark :focus-visible { outline-color: var(--accent-dark); }
 .svc.free { color: var(--accent-ink); }
 .svc.free .mono, .svc.free .svc-body .mono { color: var(--accent-ink); }
 .svc.free .ticks li::before { background: var(--accent-ink); }
+
+/* under-construction flag (About S10-S13, copy still being decided) */
+.uc { position: relative; }
+.uc-flag { position: absolute; top: 14px; right: 14px; z-index: 5; display: flex; flex-direction: column; gap: .15rem; padding: .55rem .9rem; font: 700 .68rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); background: repeating-linear-gradient(-45deg, #ffd60a 0 14px, #0e0e0d 14px 28px); border: 2px solid #0e0e0d; box-shadow: 4px 4px 0 var(--ink); transform: rotate(2deg); }
+.uc-flag span { background: #ffd60a; padding: .1rem .4rem; }
+.uc-flag span + span { font-weight: 400; }

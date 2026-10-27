@@ -59,11 +59,11 @@ HEAD = """<!doctype html>
 FOOT = """</main>
 <section class="cta">
   <div class="wrap">
-    <p class="mono">Got a problem on site, in the office, or in the spreadsheet?</p>
-    <a class="big display" href="contact.html">Let&rsquo;s talk<span class="arr u">&rarr;</span></a>
+    <p class="mono">Want to work together?</p>
+    <a class="big display" href="contact.html">Get in touch<span class="arr u">&rarr;</span></a>
     <div class="row">
-      <p style="max-width:40ch;margin:0">Tell me what&rsquo;s slowing your team down. I&rsquo;ll tell you honestly if a tool can fix it.</p>
-      <a class="btn" href="contact.html">Get in touch <span class="arr">&rarr;</span></a>
+      <p style="max-width:40ch;margin:0">Send me a message about your project or problem.</p>
+      <a class="btn" href="contact.html">Contact me <span class="arr">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -108,7 +108,8 @@ def build():
         print("built", fname)
 
 
-BOXING = """<section class="dark" style="padding:0">
+BOXING = """<section class="dark uc" style="padding:0">
+  <div class="uc-flag" role="note"><span>Under construction</span><span>This section isn&rsquo;t finished yet</span></div>
   <div class="wrap" style="display:grid;grid-template-columns:1.2fr 1fr;gap:0;align-items:stretch" id="bx">
     <img src="img/boxing.jpg" alt="Gilad landing a jab in a boxing bout" loading="lazy" style="width:100%;height:100%;min-height:340px;object-fit:cover;filter:grayscale(1) contrast(1.2)">
     <div style="padding:clamp(24px,5vw,72px);align-self:center">
