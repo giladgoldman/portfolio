@@ -25,6 +25,7 @@
 </script>
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/Archivo-100-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -39,6 +40,7 @@
         <li><a href="/#register" aria-current="page">Work</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="about.html">About</a></li>
+        <li class="nav-cta"><a href="contact.html">Get in touch</a></li>
       </ul>
     </nav>
     <div class="right">
@@ -54,7 +56,7 @@
     <div class="tp-grid">
       <h1 class="display">Resourcing<br><em>Forecast</em></h1>
       <div>
-        <p class="lede" style="margin-bottom:1.6rem">The hand-painted resourcing spreadsheet, replaced with a live view of who is on which job and when. Drag to allocate, see who is over-committed, and spot the week a project has nobody in a key role before it happens.</p>
+        <p class="lede mb-16">The hand-painted resourcing spreadsheet, replaced with a live view of who is on which job and when. Drag to allocate, see who is over-committed, and spot the week a project has nobody in a key role before it happens.</p>
         <dl class="titleblock">
           <div><dt>Tool</dt><dd>005 / People &amp; planning</dd></div>
           <div><dt>Role</dt><dd>Designed + built</dd></div>
@@ -86,7 +88,7 @@
           <div class="proj">&#9662; Project Charlie <span class="tag k">Upcoming</span></div>
           <div class="row"><span class="who">Person E <small>&middot; construction mgr</small></span><div class="track"><span class="seg cm" style="left:55%;width:45%">&nbsp;</span></div></div>
         </div>
-        <p class="mono" style="color:#8d897f;margin:1rem 0 0">Drag across a row to allocate &middot; drag a bar&rsquo;s edge to change dates &middot; an overlap turns red and asks you to confirm it&rsquo;s a deliberate handover</p>
+        <p class="mono k-note">Drag across a row to allocate &middot; drag a bar&rsquo;s edge to change dates &middot; an overlap turns red and asks you to confirm it&rsquo;s a deliberate handover</p>
       </div>
       <div class="cap">Illustrative sample data</div>
     </div>
@@ -97,9 +99,9 @@
   <div class="wrap two">
     <div>
       <div class="sheet-label"><b>02</b> What it does</div>
-      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">Three views, one set of data.</h2>
+      <h2 class="display rv fs-xl">Three views, one set of data.</h2>
     </div>
-    <ol class="caps rv" style="border-top-color:var(--paper)">
+    <ol class="caps rv bt-paper">
       <li><div><strong>Timeline</strong>A project-by-project grid, coloured by role. Drag to allocate someone, drag an edge to resize, and filter by project, person, role or stage.</div></li>
       <li><div><strong>Capacity</strong>A role-by-month heatmap of how committed people are. Click a cell to see exactly which allocations make up the figure.</div></li>
       <li><div><strong>Gaps</strong>A soonest-first list of weeks where a project has nobody covering a single-holder role. An empty list is good news.</div></li>
@@ -115,7 +117,7 @@
       <div class="scr-bar"><i></i><i></i><i></i><span>resourcing / capacity + gaps</span><em>1 over &middot; 2 gaps</em></div>
       <div class="split" style="grid-template-columns:1.2fr 1fr">
         <div>
-          <p class="mono" style="color:#8d897f;margin:0 0 .6rem">Utilisation by role</p>
+          <p class="mono k-note-top">Utilisation by role</p>
           <table class="hm">
             <tr><th>Role</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th></tr>
             <tr><td>Construction manager</td><td class="c" style="background:rgba(224,112,127,.35)">70%</td><td class="c" style="background:rgba(224,112,127,.45)">80%</td><td class="c" style="background:rgba(224,112,127,.6)">95%</td><td class="c" style="background:rgba(224,112,127,.5)">85%</td><td class="c" style="background:rgba(224,112,127,.4)">75%</td><td class="c" style="background:rgba(224,112,127,.25)">60%</td></tr>
@@ -124,7 +126,7 @@
           </table>
         </div>
         <div>
-          <p class="mono" style="color:var(--accent-dark);margin:0 0 .6rem">Gaps: key role uncovered</p>
+          <p class="mono k-accent">Gaps: key role uncovered</p>
           <div class="gaplist">
             <div><span>Project Charlie &middot; no site manager</span><span class="tag a">From 14 Apr &middot; 5 weeks</span></div>
             <div><span>Project Bravo &middot; no construction manager</span><span class="tag a">From 2 Jun &middot; 11 weeks</span></div>
@@ -142,14 +144,14 @@
       <div class="sheet-label"><b>04</b> How it&rsquo;s built</div>
       <p class="statement rv">A planning tool people actually enjoy using, instead of a spreadsheet they dread.</p>
     </div>
-    <ul class="caps rv" style="border-top-color:var(--paper)">
+    <ul class="caps rv bt-paper">
       <li><div><strong>Service</strong>A Node.js and Express service with its own database, deployed to Railway.</div></li>
       <li><div><strong>Interface</strong>A React front end on the shared component library, with drag-to-create and drag-to-resize built on the timeline itself.</div></li>
       <li><div><strong>Checks as you work</strong>Conflict detection runs while you drag, and a bar turns red the moment it would overlap another allocation for the same person.</div></li>
       <li><div><strong>Access</strong>Restricted to named people while it is built out, with Admin, Planner and Viewer roles, and viewers can be scoped to specific projects.</div></li>
       <li><div><strong>Honest limits</strong>Data starts from when it was entered here. There is no historical import from the old spreadsheet.</div></li>
     </ul>
-    <div class="bench rv" style="grid-column:1/-1;margin-top:1.6rem"><span class="mono mute" style="margin-right:.6rem">Stack</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">React 18</span><span class="chip">Drag-and-drop UI</span><span class="chip">Role-based access</span><span class="chip">Railway</span><span class="chip">GitHub</span></div>
+    <div class="bench rv span-all"><span class="mono mute mr-6">Stack</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">React 18</span><span class="chip">Drag-and-drop UI</span><span class="chip">Role-based access</span><span class="chip">Railway</span><span class="chip">GitHub</span></div>
   </div>
 </section>
 

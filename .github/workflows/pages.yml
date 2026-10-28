@@ -29,7 +29,7 @@ jobs:
           token: ${{ secrets.ASSETS_TOKEN }}
           path: _assets
       - name: Add photos to the site
-        run: cp _assets/img/*.jpg img/
+        run: cp _assets/img/*.jpg _assets/img/*.webp img/
       - name: Build pages from src/pages
         run: python3 build.py
       - name: Assemble site (public files only)

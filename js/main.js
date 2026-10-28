@@ -19,11 +19,26 @@ document.addEventListener('click', (e) => {
 const btn = document.querySelector('.menu-btn');
 const nav = document.querySelector('#nav');
 if (btn && nav) {
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
+  const setOpen = (open) => {
+    nav.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));
-  });
+    btn.textContent = open ? 'Close' : 'Menu';
+  };
+  btn.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+  nav.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('open')) { setOpen(false); btn.focus(); } });
 }
+
+// Flag the first invalid field for assistive tech and sighted keyboard users, then report the problem
+const fail = (say, f, name, msg) => {
+  f.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
+  const el = f.elements[name];
+  const target = el && (el.length ? el[0] : el);   // a radio group is a RadioNodeList
+  if (target) { target.setAttribute('aria-invalid', 'true'); target.focus(); }
+  say(msg, false);
+};
+document.addEventListener('input', (e) => e.target.removeAttribute('aria-invalid'));
+const TIMEOUT = 15000;   // a hung endpoint must not leave the button stuck on "Sending..."
 
 // Contact form: POSTs JSON to the endpoint set in build.py. No email address lives on the page.
 const form = document.querySelector('#contact-form');
@@ -32,24 +47,35 @@ if (form) {
   const want = new URLSearchParams(location.search).get('topic');
   const sel = document.querySelector('#topic');
   if (want && sel) [...sel.options].forEach((o) => { if (o.dataset.k === want) sel.value = o.value; });
+  // The Web3Forms/hCaptcha script sets third-party cookies and blocks the main thread, so load it on first interaction
+  let w3f = null;
+  form.addEventListener('focusin', () => {
+    if (!form.querySelector('.h-captcha')) return;
+    w3f = document.createElement('script');
+    w3f.src = 'https://web3forms.com/client/script.js'; w3f.async = true; w3f.defer = true;
+    document.head.appendChild(w3f);
+  }, { once: true });
   const status = document.querySelector('#form-status');
   const say = (msg, ok) => { status.textContent = msg; status.className = 'form-status ' + (ok ? 'ok' : 'err'); };
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
     if (data._gotcha) return;                       // honeypot: bots fill this in
-    if (!data.name || !data.email || !data.message) return say('Please fill in your name, email and a message.', false);
+    const missing = ['name', 'email', 'message'].find((k) => !data[k]);
+    if (missing) return fail(say, form, missing, 'Please fill in your name, email and a message.');
     const cap = form.querySelector('textarea[name=h-captcha-response]');
+    if (w3f && !cap) return say('One moment, the human check is still loading.', false);
     if (cap && !cap.value) return say('Please tick the "I am human" box first.', false);
     const endpoint = form.dataset.endpoint;
     if (!endpoint) return say('This form is not connected yet (preview only), so nothing was sent.', false);
     const btn = form.querySelector('button[type=submit]');
     btn.disabled = true; say('Sending...', true);
     try {
-      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) });
+      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data), signal: AbortSignal.timeout(TIMEOUT) });
       if (!res.ok) throw new Error(res.status);
       track('generate_lead', { method: 'contact_form', topic: data.topic });
-      form.reset(); say('Thanks! Your message is on its way. I\'ll reply within a couple of business days.', true);
+      form.reset(); if (window.hcaptcha) window.hcaptcha.reset();
+      say('Thanks! Your message is on its way. I\'ll reply within a couple of business days.', true);
     } catch (err) { track('form_error', { form: 'contact_form' }); say('Something went wrong sending that. Please try again in a moment.', false); }
     btn.disabled = false;
   });
@@ -79,12 +105,18 @@ if (matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(pr
   x.innerHTML = '<i class="h"></i><i class="v"></i><b></b>';
   document.body.appendChild(x);
   const h = x.querySelector('.h'), v = x.querySelector('.v'), b = x.querySelector('b');
+  let mx = 0, my = 0, queued = false;
+  const draw = () => {   // one DOM write per frame, not per mouse event
+    queued = false;
+    h.style.transform = `translateY(${my}px)`; v.style.transform = `translateX(${mx}px)`;
+    b.style.transform = `translate(${mx + 12}px, ${my + 12}px)`;
+    b.textContent = `X ${String(mx).padStart(4, '0')}  Y ${String(Math.round(my + scrollY)).padStart(4, '0')}`;
+  };
   addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
     x.classList.add('on');
-    h.style.top = e.clientY + 'px'; v.style.left = e.clientX + 'px';
-    b.style.transform = `translate(${e.clientX + 12}px, ${e.clientY + 12}px)`;
-    b.textContent = `X ${String(e.clientX).padStart(4, '0')}  Y ${String(Math.round(e.clientY + scrollY)).padStart(4, '0')}`;
-  });
+    if (!queued) { queued = true; requestAnimationFrame(draw); }
+  }, { passive: true });
   document.addEventListener('mouseleave', () => x.classList.remove('on'));
 }
 
@@ -117,8 +149,8 @@ if (cvForm && topic && form) {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(cvForm));
     if (d.website) return;                                  // honeypot
-    if (!d.audience) return cvSay('Please choose which CV you would like.', false);
-    if (!d.email || !cvForm.email.checkValidity()) return cvSay('Please enter a valid email address.', false);
+    if (!d.audience) return fail(cvSay, cvForm, 'audience', 'Please choose which CV you would like.');
+    if (!d.email || !cvForm.email.checkValidity()) return fail(cvSay, cvForm, 'email', 'Please enter a valid email address.');
     const endpoint = cvForm.dataset.endpoint;
     if (!endpoint || !cvForm.dataset.sitekey) return cvSay('This form is not connected yet, so nothing was sent.', false);
     const token = d['cf-turnstile-response'];
@@ -126,12 +158,12 @@ if (cvForm && topic && form) {
     const btn = cvForm.querySelector('button[type=submit]');
     btn.disabled = true; cvSay('Sending...', true);
     try {
-      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: d.email, audience: d.audience, token }) });
+      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: d.email, audience: d.audience, token }), signal: AbortSignal.timeout(TIMEOUT) });
       const out = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(out.error || res.status);
       track('generate_lead', { method: 'cv_request', audience: d.audience });
       cvForm.reset(); cvSay('Done! Check your inbox for my CV (and your spam folder, just in case).', true);
-    } catch (err) { track('form_error', { form: 'cv_form' }); cvSay(err.message && isNaN(err.message) ? err.message : 'Something went wrong sending that. Please try again in a moment.', false); }
+    } catch (err) { track('form_error', { form: 'cv_form' }); cvSay(err.name === 'TimeoutError' ? 'That is taking too long. Please try again in a moment.' : err.message && isNaN(err.message) ? err.message : 'Something went wrong sending that. Please try again in a moment.', false); }
     if (window.turnstile && tsId !== null && tsId !== -1) window.turnstile.reset(tsId);
     btn.disabled = false;
   });

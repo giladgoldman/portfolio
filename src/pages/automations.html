@@ -7,7 +7,7 @@
     <div class="tp-grid">
       <h1 class="display">Scheduled<br><em>Automations</em></h1>
       <div>
-        <p class="lede" style="margin-bottom:1.6rem">The best report is the one nobody has to remember to run. These jobs watch other systems on a timetable and send a short email only when something needs attention. A second layer checks that the jobs themselves are still running.</p>
+        <p class="lede mb-16">The best report is the one nobody has to remember to run. These jobs watch other systems on a timetable and send a short email only when something needs attention. A second layer checks that the jobs themselves are still running.</p>
         <dl class="titleblock">
           <div><dt>Tool</dt><dd>007 / Automation</dd></div>
           <div><dt>Role</dt><dd>Designed + built</dd></div>
@@ -33,7 +33,7 @@
           <tr><td>Project Alpha</td><td><span class="cite">Task observation</span></td><td>Supervisor 2</td><td><span class="tag a">Draft</span></td></tr>
           <tr><td>Project Bravo</td><td><span class="cite">Site walk</span></td><td>Site manager</td><td><span class="tag a">In progress</span></td></tr>
         </table>
-        <p class="mono" style="color:#8d897f;margin:1rem 0 0">Grouped by project &middot; each form name links straight to the form &middot; no email on a day with nothing to chase</p>
+        <p class="mono k-note">Grouped by project &middot; each form name links straight to the form &middot; no email on a day with nothing to chase</p>
       </div>
       <div class="cap">Illustrative sample data</div>
     </div>
@@ -44,9 +44,9 @@
   <div class="wrap two">
     <div>
       <div class="sheet-label"><b>02</b> What it does</div>
-      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">Quiet until it matters.</h2>
+      <h2 class="display rv fs-xl">Quiet until it matters.</h2>
     </div>
-    <ol class="caps rv" style="border-top-color:var(--paper)">
+    <ol class="caps rv bt-paper">
       <li><div><strong>Weekday digest</strong>Each afternoon it lists the incomplete forms, so loose ends get chased the same day.</div></li>
       <li><div><strong>Weekly site check</strong>Each week it checks site diaries, walks, toolbox talks and observations, and drafts one email per project to forward to the site manager.</div></li>
       <li><div><strong>Monthly report check</strong>Each month it confirms every active project has filed its safety report for the month just ended, and says which hasn&rsquo;t.</div></li>
@@ -68,7 +68,7 @@
           <tr><td>Project Charlie</td><td><span class="tag a">Wrong month</span></td><td>The only completed report is logged against the month before</td></tr>
           <tr><td>Project Delta</td><td><span class="tag r">Not found</span></td><td>No completed report for the month</td></tr>
         </table>
-        <p class="mono" style="color:#8d897f;margin:1rem 0 0">Runs on the 5th at 5pm, or the working day before if it falls on a weekend or holiday &middot; each month is recorded once, so it never sends twice</p>
+        <p class="mono k-note">Runs on the 5th at 5pm, or the working day before if it falls on a weekend or holiday &middot; each month is recorded once, so it never sends twice</p>
       </div>
       <div class="cap">Illustrative sample data</div>
     </div>
@@ -88,7 +88,7 @@
           <tr><td>Monthly report check</td><td class="mono-s">None found</td><td class="mono-s">&mdash;</td><td><span class="tag r">Alert emailed</span></td></tr>
           <tr><td>Fortnightly update</td><td class="mono-s">Every 2nd Monday</td><td class="mono-s">Last Monday</td><td><span class="tag g">Healthy</span></td></tr>
         </table>
-        <p class="mono" style="color:#8d897f;margin:1rem 0 0">A daily check confirms every job still has a live schedule, and emails an alert if one doesn&rsquo;t</p>
+        <p class="mono k-note">A daily check confirms every job still has a live schedule, and emails an alert if one doesn&rsquo;t</p>
       </div>
       <div class="cap">Illustrative sample data</div>
     </div>
@@ -116,14 +116,14 @@
       <div class="sheet-label"><b>06</b> How it&rsquo;s built</div>
       <p class="statement rv">Small services on a timetable, each built to fail loudly.</p>
     </div>
-    <ul class="caps rv" style="border-top-color:var(--paper)">
+    <ul class="caps rv bt-paper">
       <li><div><strong>Jobs</strong>Each automation is its own small Node.js service on Railway&rsquo;s cron scheduler, with Melbourne-time guards so the same code behaves on holidays and weekends.</div></li>
       <li><div><strong>Email</strong>Results go out through the Microsoft Graph mail API as a named sender, in a branded layout grouped by project.</div></li>
       <li><div><strong>Source data</strong>The site-management platform is read through its MCP server, limited to a read-only list of tools, with a rotating sign-in token.</div></li>
       <li><div><strong>State</strong>A Postgres record of each run makes jobs idempotent, so a retry can&rsquo;t send the same report twice.</div></li>
       <li><div><strong>Monitoring</strong>A daily check calls the hosting platform&rsquo;s API to confirm every job still has a schedule, and emails an alert if one doesn&rsquo;t.</div></li>
     </ul>
-    <div class="bench rv" style="grid-column:1/-1;margin-top:1.6rem"><span class="mono mute" style="margin-right:.6rem">Stack</span><span class="chip">Node.js</span><span class="chip">Railway cron</span><span class="chip">Postgres</span><span class="chip">Microsoft Graph API</span><span class="chip">MCP</span><span class="chip">OAuth</span><span class="chip">Idempotent jobs</span><span class="chip">Dead-cron monitoring</span><span class="chip">GitHub</span></div>
+    <div class="bench rv span-all"><span class="mono mute mr-6">Stack</span><span class="chip">Node.js</span><span class="chip">Railway cron</span><span class="chip">Postgres</span><span class="chip">Microsoft Graph API</span><span class="chip">MCP</span><span class="chip">OAuth</span><span class="chip">Idempotent jobs</span><span class="chip">Dead-cron monitoring</span><span class="chip">GitHub</span></div>
   </div>
 </section>
 
