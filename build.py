@@ -52,6 +52,7 @@ HEAD = """<!doctype html>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="poc" role="note"><b>Proof of concept</b> <span>This site is a work in progress, not the final version.</span></div>
 <header class="top">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="{name} home">{name}</a>
