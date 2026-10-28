@@ -1,0 +1,116 @@
+<!-- title: Scheduled Automations -->
+<!-- desc: Jobs that run on a timetable, read other systems without changing them, and email only when something needs attention, plus checks that catch a job that has silently stopped. -->
+
+<section class="tp-head">
+  <div class="wrap">
+    <a class="back mono" href="index.html#register"><span class="arr back">&larr;</span> Home</a>
+    <div class="tp-grid">
+      <h1 class="display" style="font-size:clamp(2.2rem,6.4vw,6.2rem)">Scheduled<br><em>Automations</em></h1>
+      <div>
+        <p class="lede" style="margin-bottom:1.6rem">The best report is the one nobody has to remember to run. These jobs watch other systems on a timetable and send a short email only when something needs attention. A second layer checks that the jobs themselves are still running.</p>
+        <dl class="titleblock">
+          <div><dt>Tool</dt><dd>005 / Automation</dd></div>
+          <div><dt>Role</dt><dd>Designed + built</dd></div>
+          <div><dt>Inputs</dt><dd>Project systems, read-only</dd></div>
+          <div><dt>Outputs</dt><dd>Short emails, tasks, alerts</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sheet-label"><b>01</b> The weekday digest</div>
+    <div class="scr rv">
+      <div class="scr-bar"><i></i><i></i><i></i><span>digest / weekdays 2:00pm</span><em>sent</em></div>
+      <div class="scr-body">
+        <div class="field"><span>Subject</span><div>Forms started but not finished, since yesterday 2pm</div></div>
+        <div class="field"><span>Covers</span><div>Active projects only &middot; Mondays reach back to Friday 2pm</div></div>
+        <table style="margin-top:.8rem">
+          <tr><th>Project</th><th>Form</th><th>Started by</th><th>Status</th></tr>
+          <tr><td>Project Alpha</td><td><span class="cite">Toolbox talk</span></td><td>Supervisor 1</td><td><span class="tag a">In progress</span></td></tr>
+          <tr><td>Project Alpha</td><td><span class="cite">Task observation</span></td><td>Supervisor 2</td><td><span class="tag a">Draft</span></td></tr>
+          <tr><td>Project Bravo</td><td><span class="cite">Site walk</span></td><td>Site manager</td><td><span class="tag a">In progress</span></td></tr>
+        </table>
+        <p class="mono" style="color:#8d897f;margin:1rem 0 0">Grouped by project &middot; each form name links straight to the form &middot; no email on a day with nothing to chase</p>
+      </div>
+      <div class="cap">Illustrative sample data</div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap two">
+    <div>
+      <div class="sheet-label"><b>02</b> What it does</div>
+      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">Quiet until it matters.</h2>
+    </div>
+    <ol class="caps rv" style="border-top-color:var(--paper)">
+      <li><div><strong>Weekday digest</strong>Each afternoon it lists the forms started but not finished, so loose ends get chased the same day.</div></li>
+      <li><div><strong>Weekly site check</strong>Each week it checks site diaries, walks, toolbox talks and observations, and drafts one email per project to forward to the site manager.</div></li>
+      <li><div><strong>Monthly report check</strong>Each month it confirms every active project has filed its safety report for the month just ended, and says which hasn&rsquo;t.</div></li>
+      <li><div><strong>Fortnightly update</strong>Every second week it creates a task to present an update, with the details ready.</div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sheet-label"><b>03</b> The monthly report check</div>
+    <div class="scr rv">
+      <div class="scr-bar"><i></i><i></i><i></i><span>report-check / month end + 5 days</span><em>3 of 4 filed</em></div>
+      <div class="scr-body">
+        <table>
+          <tr><th>Project</th><th>Monthly safety report</th><th>What it found</th></tr>
+          <tr><td>Project Alpha</td><td><span class="tag g">Completed</span></td><td>Filed for the right month</td></tr>
+          <tr><td>Project Bravo</td><td><span class="tag g">Completed</span></td><td>Filed for the right month</td></tr>
+          <tr><td>Project Charlie</td><td><span class="tag a">Wrong month</span></td><td>The only completed report is logged against the month before</td></tr>
+          <tr><td>Project Delta</td><td><span class="tag r">Not found</span></td><td>No completed report for the month</td></tr>
+        </table>
+        <p class="mono" style="color:#8d897f;margin:1rem 0 0">Runs on the 5th at 5pm, or the working day before if it falls on a weekend or holiday &middot; each month is recorded once, so it never sends twice</p>
+      </div>
+      <div class="cap">Illustrative sample data</div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="sheet-label"><b>04</b> Watching the watchers</div>
+    <div class="scr rv">
+      <div class="scr-bar"><i></i><i></i><i></i><span>automations / health</span><em>1 alert</em></div>
+      <div class="scr-body">
+        <table>
+          <tr><th>Job</th><th>Schedule</th><th>Last run</th><th>Status</th></tr>
+          <tr><td>Weekday digest</td><td class="mono-s">Mon&ndash;Fri 2:00pm</td><td class="mono-s">Today 2:00pm</td><td><span class="tag g">Healthy</span></td></tr>
+          <tr><td>Weekly site check</td><td class="mono-s">Wed 4:00pm</td><td class="mono-s">Wed 4:00pm</td><td><span class="tag g">Healthy</span></td></tr>
+          <tr><td>Monthly report check</td><td class="mono-s">None found</td><td class="mono-s">&mdash;</td><td><span class="tag r">Alert emailed</span></td></tr>
+          <tr><td>Fortnightly update</td><td class="mono-s">Every 2nd Monday</td><td class="mono-s">Last Monday</td><td><span class="tag g">Healthy</span></td></tr>
+        </table>
+        <p class="mono" style="color:#8d897f;margin:1rem 0 0">A daily check confirms every job still has a live schedule, and emails an alert if one doesn&rsquo;t</p>
+      </div>
+      <div class="cap">Illustrative sample data</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div>
+      <div class="sheet-label"><b>05</b> Principles</div>
+      <p class="statement rv">A job that fails silently is worse than no job at all.</p>
+    </div>
+    <ul class="caps rv">
+      <li><div><strong>Quiet by default</strong>Nothing is sent when there is nothing to say, so the emails get read.</div></li>
+      <li><div><strong>Read-only connections</strong>The jobs can read other systems and create a task or email, but never delete or overwrite anything.</div></li>
+      <li><div><strong>Watch the watchers</strong>Every job is checked for a live schedule, because the worst failure is the one nobody notices.</div></li>
+      <li><div><strong>Never twice</strong>Each run is recorded, so a retry can&rsquo;t send the same report twice.</div></li>
+    </ul>
+  </div>
+</section>
+
+<nav class="pager" aria-label="Tools">
+  <a href="agents.html"><span class="mono mute"><span class="arr back">&larr;</span> Previous 004</span><span class="t">Agents</span></a>
+  <a href="health-tracker.html"><span class="mono mute">Next 006 (side project)</span><span class="t">Health Tracker <span class="arr">&rarr;</span></span></a>
+</nav>
