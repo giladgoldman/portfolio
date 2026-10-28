@@ -17,8 +17,8 @@ SITE = {
     "form_access_key": "64d91210-2438-492f-b24b-106226c43913",   # Web3Forms public key (safe to publish)
     # CV request: URL of the deployed cv-mailer service and the public Cloudflare Turnstile site key.
     # Leave empty and the "Hire me" form shows a "not connected yet" message.
-    "cv_endpoint": "",
-    "turnstile_site_key": "",
+    "cv_endpoint": "https://cv-mailer.gilad-goldman91.workers.dev/api/cv",
+    "turnstile_site_key": "0x4AAAAAAFo33zi2jqPi56BJ",   # public site key (the secret key lives only in Cloudflare)
     "year": "2026",
 }
 
