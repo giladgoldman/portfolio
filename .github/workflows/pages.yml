@@ -22,6 +22,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Fetch photos from the private assets repo
+        uses: actions/checkout@v4
+        with:
+          repository: giladgoldman/portfolio-assets
+          token: ${{ secrets.ASSETS_TOKEN }}
+          path: _assets
+      - name: Add photos to the site
+        run: cp _assets/img/*.jpg img/
       - name: Build pages from src/pages
         run: python3 build.py
       - name: Assemble site (public files only)

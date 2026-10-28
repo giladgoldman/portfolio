@@ -17,3 +17,6 @@ Static site, no dependencies. Local only: never pushed to GitHub. Full handoff n
 
 ## Still open
 Contact form endpoint (set `form_endpoint` in build.py), boxing photo (add `img/boxing.jpg`, opponent's face blurred), company link check, Copy options choices, Health Tracker AI confirmation, services pricing, tools section feedback.
+
+## Photos
+The site photos (`img/*.jpg`) live in the private `giladgoldman/portfolio-assets` repo, not here. The deploy workflow fetches them using the `ASSETS_TOKEN` Actions secret. To preview locally, copy that repo's `img/` files into `img/`.
