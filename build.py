@@ -152,7 +152,7 @@ BOXING = """<section class="dark uc" style="padding:0">
   </div>
 </section>"""
 
-TOOL_PAGES = {"accounts-ingestion.html", "methodology-builder.html", "tool-hub.html", "agents.html", "automations.html", "health-tracker.html"}
+TOOL_PAGES = {"accounts-ingestion.html", "methodology-builder.html", "tool-hub.html", "agents.html", "resourcing-forecast.html", "scope-writing-agent.html", "automations.html", "health-tracker.html"}
 
 if __name__ == "__main__":
     build()

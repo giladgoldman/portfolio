@@ -56,7 +56,7 @@
       <div>
         <p class="lede" style="margin-bottom:1.6rem">The best report is the one nobody has to remember to run. These jobs watch other systems on a timetable and send a short email only when something needs attention. A second layer checks that the jobs themselves are still running.</p>
         <dl class="titleblock">
-          <div><dt>Tool</dt><dd>005 / Automation</dd></div>
+          <div><dt>Tool</dt><dd>007 / Automation</dd></div>
           <div><dt>Role</dt><dd>Designed + built</dd></div>
           <div><dt>Inputs</dt><dd>Project systems, read-only</dd></div>
           <div><dt>Outputs</dt><dd>Short emails, tasks, alerts</dd></div>
@@ -170,12 +170,13 @@
       <li><div><strong>State</strong>A Postgres record of each run makes jobs idempotent, so a retry can&rsquo;t send the same report twice.</div></li>
       <li><div><strong>Monitoring</strong>A daily check calls the hosting platform&rsquo;s API to confirm every job still has a schedule, and emails an alert if one doesn&rsquo;t.</div></li>
     </ul>
+    <div class="bench rv" style="grid-column:1/-1;margin-top:1.6rem"><span class="mono mute" style="margin-right:.6rem">Stack</span><span class="chip">Node.js</span><span class="chip">Railway cron</span><span class="chip">Postgres</span><span class="chip">Microsoft Graph API</span><span class="chip">MCP</span><span class="chip">OAuth</span><span class="chip">Idempotent jobs</span><span class="chip">Dead-cron monitoring</span><span class="chip">GitHub</span></div>
   </div>
 </section>
 
 <nav class="pager" aria-label="Tools">
-  <a href="agents.html"><span class="mono mute"><span class="arr back">&larr;</span> Previous 004</span><span class="t">Agents</span></a>
-  <a href="health-tracker.html"><span class="mono mute">Next 006 (side project)</span><span class="t">Health Tracker <span class="arr">&rarr;</span></span></a>
+  <a href="scope-writing-agent.html"><span class="mono mute"><span class="arr back">&larr;</span> Previous 006</span><span class="t">Scope Writing Agent</span></a>
+  <a href="health-tracker.html"><span class="mono mute">Next 008 (side project)</span><span class="t">Health Tracker <span class="arr">&rarr;</span></span></a>
 </nav>
 </main>
 <section class="cta">
