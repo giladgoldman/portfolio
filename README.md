@@ -26,6 +26,7 @@ Photos are not in this repo, so copy `img/*.jpg` from `portfolio-assets` into `i
 - `form_endpoint` / `form_access_key`: Web3Forms endpoint and public key for the message form.
 - `cv_endpoint` / `turnstile_site_key`: the cv-mailer Worker URL and the public Cloudflare Turnstile site key for the "Hire me" CV form.
 - `url`: the canonical site URL used for link-preview tags.
+- `ga_id`: the Google Analytics 4 measurement ID (`G-...`). The gtag snippet is added to every page; set it to an empty string to turn tracking off.
 - Secrets never live in this repo. The only repo secret is `ASSETS_TOKEN` (a fine-grained token with read access to `portfolio-assets`; it expires, so rotate it before the expiry date).
 
 ## Folder

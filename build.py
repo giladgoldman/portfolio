@@ -21,6 +21,7 @@ SITE = {
     "cv_endpoint": "https://cv-mailer.gilad-goldman91.workers.dev/api/cv",
     "turnstile_site_key": "0x4AAAAAAFo33zi2jqPi56BJ",   # public site key (the secret key lives only in Cloudflare)
     "url": "https://gld.gldmn.net",
+    "ga_id": "G-FPYVWRCS6J",          # Google Analytics 4 measurement ID; leave empty to switch tracking off
     "year": "2026",
 }
 
@@ -29,6 +30,16 @@ NAV = [
     ("services.html", "Services", "services.html"),
     ("about.html", "About", "about.html"),
 ]
+
+ANALYTICS = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_ID');
+</script>"""
 
 HEAD = """<!doctype html>
 <html lang="en-AU">
@@ -46,6 +57,7 @@ HEAD = """<!doctype html>
 <meta property="og:image" content="{image}">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0e0e0d">
+{analytics}
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/Archivo-100-900.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
@@ -112,7 +124,8 @@ def build():
         title = title if fname == "index.html" else f"{title} · {SITE['name']}"
         html = (
             HEAD.format(title=escape(title), desc=escape(meta.get("desc", SITE["short"])), name=SITE["name"], nav=nav,
-                        url=SITE["url"] + ("/" if fname == "index.html" else "/" + fname), image=SITE["url"] + "/img/portrait.jpg")
+                        url=SITE["url"] + ("/" if fname == "index.html" else "/" + fname), image=SITE["url"] + "/img/portrait.jpg",
+                        analytics=ANALYTICS.replace("GA_ID", SITE["ga_id"]) if SITE["ga_id"] else "")
             + body
             + FOOT.format(name=SITE["name"], short=SITE["short"], year=SITE["year"])
         )
