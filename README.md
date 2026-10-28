@@ -13,7 +13,7 @@ Live at https://gld.gldmn.net. A static site (no framework, no runtime dependenc
 | Hosting and domain | GitHub Pages; `CNAME` = `gld.gldmn.net`; DNS is a `gld` CNAME to `giladgoldman.github.io` at Squarespace Domains | HTTPS enforced in Settings -> Pages. |
 
 ## Deploying
-Push or merge to `main`. `.github/workflows/pages.yml` fetches the photos, runs `python3 build.py`, assembles `_site/` (pages, `css`, `js`, `fonts`, `img`, `robots.txt`, `sitemap.xml`, `CNAME`) and deploys it. Work on a branch and open a pull request; branches are best set to delete automatically on merge (Settings -> General).
+Push or merge to `main`. `.github/workflows/pages.yml` fetches the photos, runs `python3 build.py`, assembles `_site/` (pages, `css`, `js`, `fonts`, `img`, `robots.txt`, `sitemap.xml`, `llms.txt`, `CNAME`) and deploys it. Work on a branch and open a pull request; branches are best set to delete automatically on merge (Settings -> General).
 
 ## Run it locally
 ```

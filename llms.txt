@@ -1,0 +1,24 @@
+# Gilad Goldman
+
+> Portfolio site of Gilad Goldman, a construction and technology specialist based in Melbourne, Australia. Fifteen years across estimating, product, customer success and systems in the AEC industry, now building internal tools, automations and AI agents for construction businesses. The site is a proof of concept.
+
+Gilad is a former estimator with a B.App.Sc from RMIT (2014) and experience in four startups. Work covers systems (internal tools, automations, AI agents), construction (estimating, safety, compliance, procurement) and people (hiring, training, coaching, customer success).
+
+## Main pages
+
+- [Home](https://gld.gldmn.net/): Career register and overview of past roles and work
+- [Services](https://gld.gldmn.net/services.html): Ways to work together: a free 30-minute founder sounding board, tool building and digital innovation, ISO consulting, strategic consulting, or hiring
+- [About](https://gld.gldmn.net/about.html): Background, startup experience, skills and tools
+- [Contact](https://gld.gldmn.net/contact.html): Send a message about a construction technology problem, a tool, or a project
+
+## Tools and projects
+
+- [Accounts Ingestion + Rate Library](https://gld.gldmn.net/accounts-ingestion.html): Reads the accounts inbox, sorts and extracts every invoice, claim and statement, flags exceptions for a person, and builds a rate library from what was actually paid
+- [Methodology Builder](https://gld.gldmn.net/methodology-builder.html): Turns a tender pack into a first-draft project methodology, with every fact traced to its source and checked against the tender's requirements
+- [The Tool Hub](https://gld.gldmn.net/tool-hub.html): One front door for every tool, with per-tool access control, built-in help, a searchable knowledge base, scheduled reports and monitoring
+- [Agents](https://gld.gldmn.net/agents.html): Focused AI agents for construction, such as incident report forms and design-requirement advice with referenced answers
+
+## Optional
+
+- [Health Tracker](https://gld.gldmn.net/health-tracker.html): A personal food and exercise tracker built in Notion with AI
+- [Sitemap](https://gld.gldmn.net/sitemap.xml)
