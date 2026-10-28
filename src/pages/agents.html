@@ -7,7 +7,7 @@
     <div class="tp-grid">
       <h1 class="display">Agents<br><em>with one job</em></h1>
       <div>
-        <p class="lede" style="margin-bottom:1.6rem">General chatbots are broad and forgetful. These are narrow on purpose: a defined task, the right context, and guardrails suited to construction.</p>
+        <p class="lede mb-16">General chatbots are broad and forgetful. These are narrow on purpose: a defined task, the right context, and guardrails suited to construction.</p>
         <dl class="titleblock">
           <div><dt>Tool</dt><dd>004 / Agents</dd></div>
           <div><dt>Role</dt><dd>Designed + built</dd></div>
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div>
-          <p class="mono" style="color:var(--accent-dark);margin:0 0 .6rem">Forms this incident needs</p>
+          <p class="mono k-accent">Forms this incident needs</p>
           <div class="field"><span>First aid</span><div>Every incident <span class="tag o">Drafted</span></div></div>
           <div class="field"><span>Incident</span><div>Reportable or high-risk events <span class="tag o">Drafted</span></div></div>
           <div class="field"><span>Doctor</span><div>Letter to treating doctor, subcontractor version <span class="tag a">Needs company</span></div></div>
@@ -53,7 +53,7 @@
   <div class="wrap two">
     <div>
       <div class="sheet-label"><b>02</b> Design advice agent</div>
-      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">Requirements, referenced.</h2>
+      <h2 class="display rv fs-xl">Requirements, referenced.</h2>
       <p class="lede rv mute">Ask a design-requirement question for a project and get an answer that names the Act, regulation or code it relies on, and says which sources it checked live and which you should verify.</p>
     </div>
     <div class="scr rv" style="box-shadow:10px 10px 0 var(--accent-dark);border-color:var(--accent-dark)">
@@ -98,14 +98,14 @@
       <div class="sheet-label"><b>04</b> How it&rsquo;s built</div>
       <p class="statement rv">Narrow agents with a shared toolbox underneath.</p>
     </div>
-    <ul class="caps rv" style="border-top-color:var(--paper)">
+    <ul class="caps rv bt-paper">
       <li><div><strong>Shared AI layer</strong>Every agent calls one shared wrapper over multiple AI models, with automatic failover and a cooldown for any that is struggling.</div></li>
       <li><div><strong>Incident builder</strong>A conversation collects the details, then Word templates are filled with docxtemplater and the completed forms are zipped for download.</div></li>
       <li><div><strong>Design advice</strong>Victorian legislation is fetched live from the official source. The national code and standards come from model knowledge and are tagged &ldquo;verify&rdquo;.</div></li>
       <li><div><strong>Interface</strong>The same React front end and sign-in as the rest of the hub, with per-tool access control.</div></li>
       <li><div><strong>Guardrails</strong>Each agent has a defined job and cites what it relied on. People submit and approve; the agents only prepare.</div></li>
     </ul>
-    <div class="bench rv" style="grid-column:1/-1;margin-top:1.6rem"><span class="mono mute" style="margin-right:.6rem">Stack</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">SQLite</span><span class="chip">React 18</span><span class="chip">docxtemplater</span><span class="chip">Multiple LLMs</span><span class="chip">Live legislation fetch</span><span class="chip">Word templates</span><span class="chip">Railway</span></div>
+    <div class="bench rv span-all"><span class="mono mute mr-6">Stack</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">SQLite</span><span class="chip">React 18</span><span class="chip">docxtemplater</span><span class="chip">Multiple LLMs</span><span class="chip">Live legislation fetch</span><span class="chip">Word templates</span><span class="chip">Railway</span></div>
   </div>
 </section>
 

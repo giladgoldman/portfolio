@@ -56,7 +56,7 @@
     <div class="tp-grid">
       <h1 class="display">Accounts<br>Ingestion<br><em>+ Rate Library</em></h1>
       <div>
-        <p class="lede" style="margin-bottom:1.6rem">Your accounts inbox is your source of truth. This tool reads it continuously, separates what&rsquo;s unique from what&rsquo;s duplicated, and shows what&rsquo;s been paid and what&rsquo;s still owed. It also shows what your other systems should say. It sends only the exceptions to a person, and what was actually paid goes into a rate library that prices your next job.</p>
+        <p class="lede mb-16">Your accounts inbox is your source of truth. This tool reads it continuously, separates what&rsquo;s unique from what&rsquo;s duplicated, and shows what&rsquo;s been paid and what&rsquo;s still owed. It also shows what your other systems should say. It sends only the exceptions to a person, and what was actually paid goes into a rate library that prices your next job.</p>
         <dl class="titleblock">
           <div><dt>Tool</dt><dd>001 / Cost &amp; commercial</dd></div>
           <div><dt>Role</dt><dd>Designed + built</dd></div>
@@ -75,7 +75,7 @@
       <div class="scr-bar"><i></i><i></i><i></i><span>accounts-ingestion / inbox</span><em>4 need attention</em></div>
       <div class="split" style="grid-template-columns:1fr 1.15fr">
         <div>
-          <p class="mono" style="color:#8d897f;margin:0 0 .6rem">New since 9:00</p>
+          <p class="mono k-note-top">New since 9:00</p>
           <div class="qlist">
             <div class="qcard on">
               <div class="qt"><span class="tag o">Invoice</span><strong>Supplier A</strong><span class="amt">38,516.50</span></div>
@@ -105,11 +105,11 @@
           </div>
         </div>
         <div>
-          <p class="mono" style="color:#8d897f;margin:0 0 .6rem">Source document &middot; extracted fields</p>
+          <p class="mono k-note-top">Source document &middot; extracted fields</p>
           <div class="split" style="grid-template-columns:1fr 1fr;margin:0 -1rem">
             <div style="padding-top:0">
               <div class="doc" style="min-height:250px">
-                <h5>Tax invoice &middot; Supplier A</h5>
+                <div class="doc-title">Tax invoice &middot; Supplier A</div>
                 <div class="ln hl"><span>Invoice no.</span><span>INV-20418</span></div>
                 <div class="ln hl2"><span>PO reference</span><span>PO-4471</span></div>
                 <div class="ln"><span>Site</span><span>Project Alpha</span></div>
@@ -140,9 +140,9 @@
   <div class="wrap two">
     <div>
       <div class="sheet-label"><b>02</b> What it does</div>
-      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">From a busy inbox to a short review list.</h2>
+      <h2 class="display rv fs-xl">From a busy inbox to a short review list.</h2>
     </div>
-    <ol class="caps rv" style="border-top-color:var(--paper)">
+    <ol class="caps rv bt-paper">
       <li><div><strong>Reads the inbox</strong>Checks every couple of minutes, filters spam, opens forwarded emails and reads PDFs, Word files and scans.</div></li>
       <li><div><strong>Sorts and extracts</strong>Invoice, statement, progress claim, credit note, remittance and more, each with vendor, references, project, amounts and dates.</div></li>
       <li><div><strong>Flags, never guesses</strong>Missing PO, no project, duplicates, overdue items and changed bank details go to a person. Bank changes always get a phone check.</div></li>
@@ -164,6 +164,7 @@
           </div>
           <p class="mono" style="color:#8d897f;margin:0 0 .4rem">By project</p>
           <table>
+            <tr class="sr-only"><th>Project</th><th>Invoices</th><th>Amount</th></tr>
             <tr><td>Project Alpha</td><td class="num">42 inv</td><td class="num">486,200</td></tr>
             <tr><td>Project Bravo</td><td class="num">31 inv</td><td class="num">352,900</td></tr>
             <tr><td>Project Charlie</td><td class="num">24 inv</td><td class="num">218,400</td></tr>
@@ -173,6 +174,7 @@
         <div>
           <p class="mono" style="color:#8d897f;margin:0 0 .4rem">By vendor</p>
           <table>
+            <tr class="sr-only"><th>Vendor</th><th>Share of total</th><th>Amount</th></tr>
             <tr><td>Supplier A</td><td style="width:45%"><div class="bar"><b style="width:100%"></b></div></td><td class="num">312,500</td></tr>
             <tr><td>Supplier E</td><td><div class="bar"><b style="width:74%"></b></div></td><td class="num">231,800</td></tr>
             <tr><td>Supplier F</td><td><div class="bar"><b style="width:52%"></b></div></td><td class="num">162,300</td></tr>
@@ -206,7 +208,7 @@
           </div>
         </div>
         <div>
-          <p class="mono" style="color:var(--accent-dark);margin:0 0 .6rem">Excavator 5t, hire &middot; per day <span class="tag k">Unit locked</span></p>
+          <p class="mono k-accent">Excavator 5t, hire &middot; per day <span class="tag k">Unit locked</span></p>
           <table>
             <tr><th>Vendor</th><th class="num">Rate</th><th>Date</th><th></th></tr>
             <tr><td>Supplier A</td><td class="num">340</td><td class="mono-s">Aug</td><td><span class="cite">invoice</span></td></tr>
@@ -245,7 +247,7 @@
       <div class="sheet-label"><b>06</b> How it&rsquo;s built</div>
       <p class="statement rv">Plain, dependable plumbing, with a person at every decision.</p>
     </div>
-    <ul class="caps rv" style="border-top-color:var(--paper)">
+    <ul class="caps rv bt-paper">
       <li><div><strong>Service</strong>A Node.js service watches the shared mailbox through the Microsoft Graph API every couple of minutes and writes each record to a database.</div></li>
       <li><div><strong>Extraction</strong>Text is read straight from PDFs and Word files, with OCR for scans. AI models pull out the fields, and the review screen shows the original beside the result.</div></li>
       <li><div><strong>Learning loop</strong>Each week, human corrections are distilled into updated extraction rules. They go live only if they score better against a fixed test set.</div></li>
@@ -253,7 +255,7 @@
       <li><div><strong>Hosting</strong>Deployed to Railway from GitHub. The review screen is a React app built on a shared component library, and automated probes check every endpoint.</div></li>
       <li><div><strong>Safeguards</strong>Read-only toward accounting and project systems. Replies are drafted, never sent. Sign-off is recorded per attachment.</div></li>
     </ul>
-    <div class="bench rv" style="grid-column:1/-1;margin-top:1.6rem"><span class="mono mute" style="margin-right:.6rem">Stack</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">React 18</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">shadcn/ui</span><span class="chip">Microsoft Graph API</span><span class="chip">OCR</span><span class="chip">Multiple LLMs</span><span class="chip">Excel export</span><span class="chip">Railway</span><span class="chip">GitHub</span></div>
+    <div class="bench rv span-all"><span class="mono mute mr-6">Stack</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">React 18</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">shadcn/ui</span><span class="chip">Microsoft Graph API</span><span class="chip">OCR</span><span class="chip">Multiple LLMs</span><span class="chip">Excel export</span><span class="chip">Railway</span><span class="chip">GitHub</span></div>
   </div>
 </section>
 

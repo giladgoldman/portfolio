@@ -56,7 +56,7 @@
     <div class="tp-grid">
       <h1 class="display">The<br><em>Tool Hub</em></h1>
       <div>
-        <p class="lede" style="margin-bottom:1.6rem">Individual tools are useful. A front door that launches them, controls who sees them, explains them, reports across them and tells you when something has stopped running is what makes them stick.</p>
+        <p class="lede mb-16">Individual tools are useful. A front door that launches them, controls who sees them, explains them, reports across them and tells you when something has stopped running is what makes them stick.</p>
         <dl class="titleblock">
           <div><dt>Tool</dt><dd>003 / Platform</dd></div>
           <div><dt>Role</dt><dd>Designed + built</dd></div>
@@ -74,9 +74,9 @@
     <div class="scr rv">
       <div class="scr-bar"><i></i><i></i><i></i><span>tool-hub / home</span><em>signed in &middot; staff</em></div>
       <div class="side">
-        <nav><a class="on" href="#">Tools</a><a href="#">Knowledge</a><a href="#">Tool access</a><a href="#">Platform data</a></nav>
+        <nav aria-hidden="true"><span class="on">Tools</span><span>Knowledge</span><span>Tool access</span><span>Platform data</span></nav>
         <div class="scr-body">
-          <p class="mono" style="color:#8d897f;margin:0 0 .6rem">Open a tool</p>
+          <p class="mono k-note-top">Open a tool</p>
           <div class="tiles">
             <div class="tile"><strong>Accounts inbox</strong><small>Review extracted invoices</small><span><span class="tag o">Live</span></span></div>
             <div class="tile"><strong>Methodology</strong><small>Tender pack to first draft</small><span><span class="tag o">Live</span></span></div>
@@ -176,14 +176,14 @@
       <div class="sheet-label"><b>04</b> How it&rsquo;s built</div>
       <p class="statement rv">One front door, built so every new tool plugs straight in.</p>
     </div>
-    <ul class="caps rv" style="border-top-color:var(--paper)">
+    <ul class="caps rv bt-paper">
       <li><div><strong>Frontend</strong>React 18 with Vite, styled with Tailwind and a shared component library, so every tool looks and behaves the same.</div></li>
       <li><div><strong>Backend</strong>An Express API in a monorepo of npm workspaces. Each tool is its own service, deployed to Railway.</div></li>
       <li><div><strong>Sign-in</strong>A one-time code is emailed through Microsoft Graph, limited to company addresses. Tool access lists are stored in the database and applied before a tile is even shown.</div></li>
       <li><div><strong>Help and feedback</strong>Help answers come from a plain-English guide for each tool. Every report lands in one triage database in Notion, and a check fails the build if a new tool isn&rsquo;t wired in.</div></li>
       <li><div><strong>Monitoring</strong>Scheduled probes exercise each tool, and a separate check confirms every scheduled job still has a live schedule.</div></li>
     </ul>
-    <div class="bench rv" style="grid-column:1/-1;margin-top:1.6rem"><span class="mono mute" style="margin-right:.6rem">Stack</span><span class="chip">React 18</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">shadcn/ui</span><span class="chip">Radix UI</span><span class="chip">Express</span><span class="chip">SQLite</span><span class="chip">Notion API</span><span class="chip">Microsoft Graph API</span><span class="chip">npm workspaces</span><span class="chip">Canary probes</span><span class="chip">Railway</span></div>
+    <div class="bench rv span-all"><span class="mono mute mr-6">Stack</span><span class="chip">React 18</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">shadcn/ui</span><span class="chip">Radix UI</span><span class="chip">Express</span><span class="chip">SQLite</span><span class="chip">Notion API</span><span class="chip">Microsoft Graph API</span><span class="chip">npm workspaces</span><span class="chip">Canary probes</span><span class="chip">Railway</span></div>
   </div>
 </section>
 
