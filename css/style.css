@@ -344,11 +344,9 @@ footer a { text-decoration: none; } footer a:hover { color: var(--accent-dark); 
 /* external company links (career table) */
 a.ext { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
 .rev td:last-child { position: relative; padding-right: 3.2rem; }
-.rev .stint { display: block; }
-.rev .stint + .stint { margin-top: .25rem; }
 /* single-link rows: an arrow sits at the row end and slides in on hover */
-.rev td:last-child:has(> a.ext:only-child)::after { content: "\2192"; position: absolute; right: 1rem; top: 1rem; color: var(--accent-dark); opacity: 0; transform: translateX(-10px); transition: opacity .2s ease, transform .2s ease; }
-.rev tr:hover td:last-child:has(> a.ext:only-child)::after { opacity: 1; transform: none; }
+.rev td:last-child:has(> a.ext:only-of-type)::after { content: "\2192"; position: absolute; right: 1rem; top: 1rem; color: var(--accent-dark); opacity: 0; transform: translateX(-10px); transition: opacity .2s ease, transform .2s ease; }
+.rev tr:hover td:last-child:has(> a.ext:only-of-type)::after { opacity: 1; transform: none; }
 a.ext:hover { color: var(--accent); }
 
 /* ── arrows: one pattern everywhere. Points right (90deg) by default, tilts to 45deg on hover.
