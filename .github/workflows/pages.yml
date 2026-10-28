@@ -27,7 +27,7 @@ jobs:
       - name: Assemble site (public files only)
         run: |
           mkdir _site
-          cp *.html CNAME _site/
+          cp *.html CNAME robots.txt sitemap.xml _site/
           cp -r css js fonts img _site/
           rm -f _site/preview.html
       - uses: actions/configure-pages@v5
