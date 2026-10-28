@@ -13,7 +13,7 @@ if (btn && nav) {
 // Contact form: POSTs JSON to the endpoint set in build.py. No email address lives on the page.
 const form = document.querySelector('#contact-form');
 if (form) {
-  // ?topic=startup|tools|iso|strategy|hiring|other preselects the dropdown (links from the Services page)
+  // ?topic=startup|tools|iso|customer-success|strategy|hiring|other preselects the dropdown (links from the Services page)
   const want = new URLSearchParams(location.search).get('topic');
   const sel = document.querySelector('#topic');
   if (want && sel) [...sel.options].forEach((o) => { if (o.dataset.k === want) sel.value = o.value; });
