@@ -1,5 +1,20 @@
 document.documentElement.classList.add('js');
 
+// Google Analytics events (gtag is loaded in the page head; no-ops if it is blocked or switched off)
+const track = (name, params) => { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); };
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  if (/^https?:/.test(href) && a.hostname !== location.hostname) {
+    // career-table links are company names; the icon links in the contact section carry an aria-label
+    const social = a.getAttribute('aria-label');
+    track(social ? 'social_click' : 'outbound_click', { link_text: social || a.textContent.trim(), link_url: a.href });
+  } else if (/(^|\/)contact\.html/.test(href) && !a.closest('nav')) {
+    track('cta_click', { link_text: a.textContent.replace(/\s+/g, ' ').trim(), page_path: location.pathname });
+  }
+});
+
 // Mobile nav
 const btn = document.querySelector('.menu-btn');
 const nav = document.querySelector('#nav');
@@ -33,8 +48,9 @@ if (form) {
     try {
       const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) });
       if (!res.ok) throw new Error(res.status);
+      track('generate_lead', { method: 'contact_form', topic: data.topic });
       form.reset(); say('Thanks! Your message is on its way. I\'ll reply within a couple of business days.', true);
-    } catch (err) { say('Something went wrong sending that. Please try again in a moment.', false); }
+    } catch (err) { track('form_error', { form: 'contact_form' }); say('Something went wrong sending that. Please try again in a moment.', false); }
     btn.disabled = false;
   });
 }
@@ -92,7 +108,7 @@ if (cvForm && topic && form) {
   const sync = () => {
     const hiring = topic.options[topic.selectedIndex].dataset.k === 'hiring';
     form.hidden = hiring; cvForm.hidden = !hiring;
-    if (hiring) loadTurnstile();
+    if (hiring) { loadTurnstile(); track('cv_form_open'); }
   };
   topic.addEventListener('change', sync);
   document.querySelector('#cv-back').addEventListener('click', (e) => { e.preventDefault(); topic.value = [...topic.options].find((o) => o.dataset.k === 'other').value; sync(); });
@@ -113,8 +129,9 @@ if (cvForm && topic && form) {
       const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: d.email, audience: d.audience, token }) });
       const out = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(out.error || res.status);
+      track('generate_lead', { method: 'cv_request', audience: d.audience });
       cvForm.reset(); cvSay('Done! Check your inbox for my CV (and your spam folder, just in case).', true);
-    } catch (err) { cvSay(err.message && isNaN(err.message) ? err.message : 'Something went wrong sending that. Please try again in a moment.', false); }
+    } catch (err) { track('form_error', { form: 'cv_form' }); cvSay(err.message && isNaN(err.message) ? err.message : 'Something went wrong sending that. Please try again in a moment.', false); }
     if (window.turnstile && tsId !== null && tsId !== -1) window.turnstile.reset(tsId);
     btn.disabled = false;
   });
