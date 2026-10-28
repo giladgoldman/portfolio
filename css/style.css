@@ -329,12 +329,12 @@ footer a { text-decoration: none; } footer a:hover { color: var(--accent-dark); 
 @media (max-width: 860px) { .skills { grid-template-columns: 1fr; } .skills > div { border-right: 0; border-bottom: 1px solid #3a3935; padding: 1.6rem 0 !important; } }
 
 /* ── contact form ── */
-form.contact { display: grid; gap: 1.2rem; max-width: 620px; }
-form.contact label { display: grid; gap: .4rem; font: 700 .72rem var(--mono); text-transform: uppercase; letter-spacing: .08em; }
-form.contact input, form.contact textarea, form.contact select { font: 400 1.05rem var(--body); text-transform: none; letter-spacing: 0; padding: .85rem .9rem; background: #fff; color: var(--ink); border: 2px solid var(--ink); border-radius: 0; }
-form.contact input:focus, form.contact textarea:focus, form.contact select:focus { outline: 3px solid var(--accent); outline-offset: 0; }
-form.contact .btn { justify-self: start; }
-form.contact .btn:disabled { opacity: .6; cursor: wait; }
+.contact { display: grid; gap: 1.2rem; max-width: 620px; }
+.contact label { display: grid; gap: .4rem; font: 700 .72rem var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.contact input:not([type=radio]), .contact textarea, .contact select { font: 400 1.05rem var(--body); text-transform: none; letter-spacing: 0; padding: .85rem .9rem; background: #fff; color: var(--ink); border: 2px solid var(--ink); border-radius: 0; }
+.contact input:focus, .contact textarea:focus, .contact select:focus { outline: 3px solid var(--accent); outline-offset: 0; }
+.contact .btn { justify-self: start; }
+.contact .btn:disabled { opacity: .6; cursor: wait; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .form-status { font: .78rem var(--mono); letter-spacing: .04em; margin: 0; min-height: 1.4em; }
 .form-status.ok { color: var(--ok); } .form-status.err { color: var(--bad); }
@@ -396,3 +396,9 @@ section.dark :focus-visible { outline-color: var(--accent-dark); }
 .uc-flag b, .uc-flag small { display: block; background: #ffd60a; margin: 0 auto; width: fit-content; padding: .1rem .8rem; }
 .uc-flag b { font: 900 clamp(1.6rem, 5vw, 3.4rem)/1.05 var(--display); font-stretch: 125%; letter-spacing: -.02em; text-transform: uppercase; }
 .uc-flag small { font: 700 .75rem var(--mono); letter-spacing: .1em; text-transform: uppercase; padding-bottom: .3rem; }
+
+.contact [hidden], form[hidden] { display: none; }
+.contact .aud { border: 0; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.contact .aud legend { font: 700 .72rem var(--mono); text-transform: uppercase; letter-spacing: .08em; padding: 0; margin-bottom: .6rem; }
+.contact label.radio { display: flex; align-items: center; gap: .6rem; font: 400 1.05rem var(--body); text-transform: none; letter-spacing: 0; padding: .85rem .9rem; background: #fff; border: 2px solid var(--ink); cursor: pointer; }
+.contact label.radio input { accent-color: var(--accent); width: 1.1rem; height: 1.1rem; }

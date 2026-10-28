@@ -42,6 +42,17 @@
 
 <section>
   <div class="wrap two">
+    <div class="contact">
+    <label>What&rsquo;s it about?
+      <select name="topic" id="topic" form="contact-form">
+        <option data-k="startup">Startup sounding board (free 30 minutes)</option>
+        <option data-k="tools">Tool building / digital innovation</option>
+        <option data-k="iso">ISO consulting</option>
+        <option data-k="strategy">Strategic consulting</option>
+        <option data-k="hiring">Hiring me (get my CV)</option>
+        <option data-k="other" selected>Something else</option>
+      </select>
+    </label>
     <form class="contact" id="contact-form" data-endpoint="https://api.web3forms.com/submit" novalidate>
       <input type="hidden" name="access_key" value="64d91210-2438-492f-b24b-106226c43913">
       <input type="hidden" name="subject" value="New message from gld.gldmn.net">
@@ -49,22 +60,27 @@
       <label>Name<input name="name" required autocomplete="name"></label>
       <label>Company<input name="company" autocomplete="organization"></label>
       <label>Email<input name="email" type="email" required autocomplete="email"></label>
-      <label>What&rsquo;s it about?
-        <select name="topic">
-          <option data-k="startup">Startup sounding board (free 30 minutes)</option>
-          <option data-k="tools">Tool building / digital innovation</option>
-          <option data-k="iso">ISO consulting</option>
-          <option data-k="strategy">Strategic consulting</option>
-          <option data-k="hiring">Hiring me</option>
-          <option data-k="other" selected>Something else</option>
-        </select>
-      </label>
       <label>Message<textarea name="message" rows="6" required></textarea></label>
       <div class="h-captcha" data-captcha="true"></div>
       <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="btn" type="submit">Send message <span class="arr">&rarr;</span></button>
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
     </form>
+    <form class="contact" id="cv-form" data-endpoint="https://cv-mailer.gilad-goldman91.workers.dev/api/cv" data-sitekey="0x4AAAAAAFo33zi2jqPi56BJ" hidden novalidate>
+      <p class="lede" style="margin:0">Enter your email and tell me which kind of role you&rsquo;re hiring for. I&rsquo;ll send you the matching CV straight away.</p>
+      <fieldset class="aud">
+        <legend>Which CV?</legend>
+        <label class="radio"><input type="radio" name="audience" value="tech" required> Tech role</label>
+        <label class="radio"><input type="radio" name="audience" value="construction"> Construction role</label>
+      </fieldset>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div id="cv-ts"></div>
+      <button class="btn" type="submit">Email me the CV <span class="arr">&rarr;</span></button>
+      <p class="form-status" id="cv-status" role="status" aria-live="polite"></p>
+      <p class="mute" style="margin:0;font-size:.9rem">Would rather send a message? <a href="#" id="cv-back" class="ext">Write to me instead</a>.</p>
+    </form>
+    </div>
     <div>
       <ul class="caps rv">
         <li><div><strong>Human</strong>Yes, a real one is reading this.</div></li>
