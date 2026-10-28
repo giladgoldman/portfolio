@@ -19,10 +19,14 @@ document.addEventListener('click', (e) => {
 const btn = document.querySelector('.menu-btn');
 const nav = document.querySelector('#nav');
 if (btn && nav) {
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
+  const setOpen = (open) => {
+    nav.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));
-  });
+    btn.textContent = open ? 'Close' : 'Menu';
+  };
+  btn.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+  nav.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('open')) { setOpen(false); btn.focus(); } });
 }
 
 // Contact form: POSTs JSON to the endpoint set in build.py. No email address lives on the page.
@@ -79,12 +83,18 @@ if (matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(pr
   x.innerHTML = '<i class="h"></i><i class="v"></i><b></b>';
   document.body.appendChild(x);
   const h = x.querySelector('.h'), v = x.querySelector('.v'), b = x.querySelector('b');
+  let mx = 0, my = 0, queued = false;
+  const draw = () => {   // one DOM write per frame, not per mouse event
+    queued = false;
+    h.style.transform = `translateY(${my}px)`; v.style.transform = `translateX(${mx}px)`;
+    b.style.transform = `translate(${mx + 12}px, ${my + 12}px)`;
+    b.textContent = `X ${String(mx).padStart(4, '0')}  Y ${String(Math.round(my + scrollY)).padStart(4, '0')}`;
+  };
   addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
     x.classList.add('on');
-    h.style.top = e.clientY + 'px'; v.style.left = e.clientX + 'px';
-    b.style.transform = `translate(${e.clientX + 12}px, ${e.clientY + 12}px)`;
-    b.textContent = `X ${String(e.clientX).padStart(4, '0')}  Y ${String(Math.round(e.clientY + scrollY)).padStart(4, '0')}`;
-  });
+    if (!queued) { queued = true; requestAnimationFrame(draw); }
+  }, { passive: true });
   document.addEventListener('mouseleave', () => x.classList.remove('on'));
 }
 

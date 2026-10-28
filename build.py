@@ -60,6 +60,7 @@ HEAD = """<!doctype html>
 {analytics}
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/Archivo-100-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -112,14 +113,14 @@ def build():
     for src in sources:                      # only clear pages this script generates
         (ROOT / src.name).unlink(missing_ok=True)
     for src in sources:
-        raw = src.read_text()
+        raw = src.read_text(encoding="utf-8")
         meta = dict(re.findall(r"<!--\s*(title|desc):\s*(.*?)\s*-->", raw))
         body = re.sub(r"<!--\s*(title|desc):.*?-->\s*", "", raw)
         fname = src.name
         nav = "\n".join(
             f'        <li><a href="{h}"{" aria-current=\"page\"" if page == fname or (page == "index.html" and fname in TOOL_PAGES) else ""}>{l}</a></li>'
             for h, l, page in NAV
-        )
+        ) + '\n        <li class="nav-cta"><a href="contact.html">Get in touch</a></li>'  # desktop shows the header button instead
         title = meta.get("title", SITE["name"])
         title = title if fname == "index.html" else f"{title} · {SITE['name']}"
         html = (
@@ -136,7 +137,7 @@ def build():
         html = html.replace("{{boxing}}", BOXING if (ROOT / "img" / "boxing.jpg").exists() else "")
         if fname == "404.html":   # served from any path, so asset and page links must be root-relative
             html = re.sub(r'(href|src)="(?!https?:|#|/|mailto:)', r'\1="/', html).replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta name="robots" content="noindex">', 1)
-        (ROOT / fname).write_text(html)
+        (ROOT / fname).write_text(html, encoding="utf-8", newline="\n")
         print("built", fname)
 
 
