@@ -111,6 +111,23 @@
   </div>
 </section>
 
+<section>
+  <div class="wrap two">
+    <div>
+      <div class="sheet-label"><b>05</b> How it&rsquo;s built</div>
+      <p class="statement rv">A document editor on the outside, a pipeline of checks underneath.</p>
+    </div>
+    <ul class="caps rv">
+      <li><div><strong>Service</strong>A Node.js and Express service backed by Postgres. Each tender is a saved run, and drafting happens in background jobs so you can keep working.</div></li>
+      <li><div><strong>Facts first</strong>AI reads facts from the tender text. Each carries the words it came from, and anything that can&rsquo;t be verified against the text is dropped.</div></li>
+      <li><div><strong>Wording library</strong>Approved wording lives in a maintained library of reusable blocks, so changes are made once and flow into every new draft.</div></li>
+      <li><div><strong>Editing</strong>Changes save as you go with undo and history, and a one-editor lock stops two people overwriting each other.</div></li>
+      <li><div><strong>Export</strong>Word files are generated from templates with docxtemplater, with flags and review notes highlighted.</div></li>
+      <li><div><strong>Resilience</strong>Uploaded files are deleted once read. If the free AI quota runs out, reading stops with a clear message and resumes later, and finished work is kept.</div></li>
+    </ul>
+  </div>
+</section>
+
 <nav class="pager" aria-label="Tools">
   <a href="accounts-ingestion.html"><span class="mono mute"><span class="arr back">&larr;</span> Previous 001</span><span class="t">Accounts Ingestion</span></a>
   <a href="tool-hub.html"><span class="mono mute">Next tool 003</span><span class="t">The Tool Hub <span class="arr">&rarr;</span></span></a>

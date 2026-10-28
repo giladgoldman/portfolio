@@ -237,6 +237,23 @@
   </div>
 </section>
 
+<section class="dark">
+  <div class="wrap two">
+    <div>
+      <div class="sheet-label"><b>06</b> How it&rsquo;s built</div>
+      <p class="statement rv">Plain, dependable plumbing, with a person at every decision.</p>
+    </div>
+    <ul class="caps rv" style="border-top-color:var(--paper)">
+      <li><div><strong>Service</strong>A Node.js service watches the shared mailbox through the Microsoft Graph API every couple of minutes and writes each record to a database.</div></li>
+      <li><div><strong>Extraction</strong>Text is read straight from PDFs and Word files, with OCR for scans. AI models pull out the fields, and the review screen shows the original beside the result.</div></li>
+      <li><div><strong>Learning loop</strong>Each week, human corrections are distilled into updated extraction rules. They go live only if they score better against a fixed test set.</div></li>
+      <li><div><strong>AI</strong>Free-tier models from several providers sit behind one shared wrapper, with automatic failover. A paid model can be switched on by configuration.</div></li>
+      <li><div><strong>Hosting</strong>Deployed to Railway from GitHub. The review screen is a React app built on a shared component library, and automated probes check every endpoint.</div></li>
+      <li><div><strong>Safeguards</strong>Read-only toward accounting and project systems. Replies are drafted, never sent. Sign-off is recorded per attachment.</div></li>
+    </ul>
+  </div>
+</section>
+
 <nav class="pager" aria-label="Tools">
   <a href="/#register"><span class="mono mute">Back</span><span class="t">Index</span></a>
   <a href="methodology-builder.html"><span class="mono mute">Next tool 002</span><span class="t">Methodology Builder <span class="arr">&rarr;</span></span></a>
