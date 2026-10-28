@@ -37,7 +37,7 @@ Photos are not in this repo, so copy `img/*.jpg` from `portfolio-assets` into `i
 
 ## Known loose ends
 - The About page "Off the clock" section is covered by an under-construction overlay until its copy is finalised.
-- Career-table links (EstimateOne, BuildPass, Hutchinson Builders, Peach) carry referral attribution (`?ref=GILADG&utm_source=GILADG`); change it in `src/pages/index.html`.
+- Career-table links (EstimateOne, BuildPass, Hutchinson Builders, Peach, Mentorloop, Hubdoc) carry referral attribution (`?ref=GILADG&utm_source=GILADG`); change it in `src/pages/index.html`.
 - The tool pages (Accounts Ingestion, Methodology Builder, Tool Hub, Agents, Health Tracker) were reworked from the real tools' documentation on 28 Oct 2026; all sample data is fictional.
 - Services page has no stated pricing (deliberately left for now).
 - `build.py` still contains an unused boxing-photo banner that only renders if `img/boxing.jpg` exists in `portfolio-assets`.
