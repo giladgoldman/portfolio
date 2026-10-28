@@ -204,7 +204,7 @@ section.dark .mute { color: #9a968c; }
 .tp-head .back { display: inline-block; margin-bottom: 2rem; text-decoration: none; }
 .tp-head .back:hover { color: var(--accent); }
 .tp-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 3rem; align-items: end; padding-bottom: 2.6rem; }
-.tp-grid h1 { font-size: clamp(2.6rem, 6.2vw, 7rem); }
+.tp-grid h1 { font-size: clamp(2.2rem, 5.4vw, 5.2rem); }
 .tp-grid h1 em { font-style: normal; color: var(--accent); }
 .titleblock { border: 2px solid var(--ink); font-family: var(--mono); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; }
 .titleblock div { display: grid; grid-template-columns: 110px 1fr; border-bottom: 1px solid var(--ink); }
