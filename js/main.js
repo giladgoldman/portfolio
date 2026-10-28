@@ -15,7 +15,7 @@ const form = document.querySelector('#contact-form');
 if (form) {
   // ?topic=startup|tools|iso|strategy|hiring|other preselects the dropdown (links from the Services page)
   const want = new URLSearchParams(location.search).get('topic');
-  const sel = form.querySelector('select[name=topic]');
+  const sel = document.querySelector('#topic');
   if (want && sel) [...sel.options].forEach((o) => { if (o.dataset.k === want) sel.value = o.value; });
   const status = document.querySelector('#form-status');
   const say = (msg, ok) => { status.textContent = msg; status.className = 'form-status ' + (ok ? 'ok' : 'err'); };
@@ -70,4 +70,52 @@ if (matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(pr
     b.textContent = `X ${String(e.clientX).padStart(4, '0')}  Y ${String(Math.round(e.clientY + scrollY)).padStart(4, '0')}`;
   });
   document.addEventListener('mouseleave', () => x.classList.remove('on'));
+}
+
+// "Hiring me" swaps the message form for a short "email me your CV" form (served by the cv-mailer service)
+const cvForm = document.querySelector('#cv-form');
+const topic = document.querySelector('#topic');
+if (cvForm && topic && form) {
+  const cvStatus = document.querySelector('#cv-status');
+  const cvSay = (msg, ok) => { cvStatus.textContent = msg; cvStatus.className = 'form-status ' + (ok ? 'ok' : 'err'); };
+  let tsId = null;
+  const loadTurnstile = () => {
+    const key = cvForm.dataset.sitekey;
+    if (!key || tsId !== null) return;
+    tsId = -1;
+    const draw = () => { tsId = window.turnstile.render('#cv-ts', { sitekey: key }); };
+    if (window.turnstile) return draw();
+    const s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    s.async = true; s.onload = draw; document.head.appendChild(s);
+  };
+  const sync = () => {
+    const hiring = topic.options[topic.selectedIndex].dataset.k === 'hiring';
+    form.hidden = hiring; cvForm.hidden = !hiring;
+    if (hiring) loadTurnstile();
+  };
+  topic.addEventListener('change', sync);
+  document.querySelector('#cv-back').addEventListener('click', (e) => { e.preventDefault(); topic.value = [...topic.options].find((o) => o.dataset.k === 'other').value; sync(); });
+  sync();
+  cvForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(cvForm));
+    if (d.website) return;                                  // honeypot
+    if (!d.audience) return cvSay('Please choose which CV you would like.', false);
+    if (!d.email || !cvForm.email.checkValidity()) return cvSay('Please enter a valid email address.', false);
+    const endpoint = cvForm.dataset.endpoint;
+    if (!endpoint || !cvForm.dataset.sitekey) return cvSay('This form is not connected yet, so nothing was sent.', false);
+    const token = d['cf-turnstile-response'];
+    if (!token) return cvSay('Please complete the human check first.', false);
+    const btn = cvForm.querySelector('button[type=submit]');
+    btn.disabled = true; cvSay('Sending...', true);
+    try {
+      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: d.email, audience: d.audience, token }) });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(out.error || res.status);
+      cvForm.reset(); cvSay('Done! Check your inbox for my CV (and your spam folder, just in case).', true);
+    } catch (err) { cvSay(err.message && isNaN(err.message) ? err.message : 'Something went wrong sending that. Please try again in a moment.', false); }
+    if (window.turnstile && tsId !== null && tsId !== -1) window.turnstile.reset(tsId);
+    btn.disabled = false;
+  });
 }

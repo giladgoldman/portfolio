@@ -15,6 +15,10 @@ SITE = {
     # Leave empty and the form shows a "not connected yet" message instead of sending.
     "form_endpoint": "https://api.web3forms.com/submit",
     "form_access_key": "64d91210-2438-492f-b24b-106226c43913",   # Web3Forms public key (safe to publish)
+    # CV request: URL of the deployed cv-mailer service and the public Cloudflare Turnstile site key.
+    # Leave empty and the "Hire me" form shows a "not connected yet" message.
+    "cv_endpoint": "",
+    "turnstile_site_key": "",
     "year": "2026",
 }
 
@@ -101,6 +105,7 @@ def build():
             + FOOT.format(name=SITE["name"], short=SITE["short"], year=SITE["year"])
         )
         html = html.replace("{{endpoint}}", SITE["form_endpoint"])
+        html = html.replace("{{cv_endpoint}}", SITE["cv_endpoint"]).replace("{{turnstile_key}}", SITE["turnstile_site_key"])
         key = SITE["form_access_key"]
         html = html.replace("{{access_key}}", f'<input type="hidden" name="access_key" value="{key}">' if key else "")
         html = html.replace("{{boxing}}", BOXING if (ROOT / "img" / "boxing.jpg").exists() else "")
