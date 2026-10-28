@@ -1,5 +1,5 @@
 <!-- title: The Tool Hub -->
-<!-- desc: One front door for every tool, with built-in support documentation, large-scale reporting and security auditing. -->
+<!-- desc: One front door for every tool, with per-tool access control, built-in help, a searchable knowledge base, scheduled reports and checks, and monitoring that tells you when a job stops running. -->
 
 <section class="tp-head">
   <div class="wrap">
@@ -7,12 +7,12 @@
     <div class="tp-grid">
       <h1 class="display">The<br><em>Tool Hub</em></h1>
       <div>
-        <p class="lede" style="margin-bottom:1.6rem">Individual tools are useful. A hub that connects them, documents them, reports across them and keeps them secure is what makes them stick.</p>
+        <p class="lede" style="margin-bottom:1.6rem">Individual tools are useful. A front door that launches them, controls who sees them, explains them, reports across them and tells you when something has stopped running is what makes them stick.</p>
         <dl class="titleblock">
           <div><dt>Tool</dt><dd>003 / Platform</dd></div>
           <div><dt>Role</dt><dd>Designed + built</dd></div>
-          <div><dt>Modules</dt><dd>Docs, reporting, security</dd></div>
-          <div><dt>Audience</dt><dd>Site, office, leadership</dd></div>
+          <div><dt>Modules</dt><dd>Launcher, help, reports, checks</dd></div>
+          <div><dt>Audience</dt><dd>All staff, plus admins</dd></div>
         </dl>
       </div>
     </div>
@@ -23,24 +23,20 @@
   <div class="wrap">
     <div class="sheet-label"><b>01</b> The hub</div>
     <div class="scr rv">
-      <div class="scr-bar"><i></i><i></i><i></i><span>tool-hub / home</span><em>all systems nominal</em></div>
+      <div class="scr-bar"><i></i><i></i><i></i><span>tool-hub / home</span><em>signed in &middot; staff</em></div>
       <div class="side">
-        <nav><a class="on" href="#">Overview</a><a href="#">Accounts</a><a href="#">Methodology</a><a href="#">Agents</a><a href="#">Reporting</a><a href="#">Security</a><a href="#">Docs</a></nav>
+        <nav><a class="on" href="#">Tools</a><a href="#">Knowledge</a><a href="#">Tool access</a><a href="#">Platform data</a></nav>
         <div class="scr-body">
-          <div class="kpis">
-            <div class="kpi"><small>Docs ingested</small><strong>12,480</strong></div>
-            <div class="kpi"><small>Auto-coded</small><strong>78%</strong></div>
-            <div class="kpi"><small>Methods issued</small><strong>64</strong></div>
-            <div class="kpi"><small>Open audits</small><strong>2</strong></div>
+          <p class="mono" style="color:#8d897f;margin:0 0 .6rem">Open a tool</p>
+          <div class="tiles">
+            <div class="tile"><strong>Accounts inbox</strong><small>Review extracted invoices</small><span><span class="tag o">Live</span></span></div>
+            <div class="tile"><strong>Methodology</strong><small>Tender pack to first draft</small><span><span class="tag o">Live</span></span></div>
+            <div class="tile"><strong>Procurement schedule</strong><small>Plan packages and lead times</small><span><span class="tag o">Live</span></span></div>
+            <div class="tile"><strong>Rate library</strong><small>What was actually paid</small><span><span class="tag a">In progress</span></span></div>
+            <div class="tile"><strong>Knowledge base</strong><small>Browse or ask a question</small><span><span class="tag o">Live</span></span></div>
+            <div class="tile soft"><strong>Project reporting</strong><small>Under construction</small><span><span class="tag k">Soon</span></span></div>
           </div>
-          <p class="mono" style="color:#8d897f;margin:0">Weekly activity</p>
-          <div class="bars"><i style="height:35%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:60%"></i><i style="height:55%"></i><i class="hi" style="height:88%"></i><i style="height:70%"></i><i style="height:64%"></i><i style="height:80%"></i><i class="hi" style="height:100%"></i></div>
-          <table>
-            <tr><th>Module</th><th>Status</th><th class="num">Use</th></tr>
-            <tr><td>Accounts ingestion</td><td><span class="tag g">Running</span></td><td class="num">82%</td></tr>
-            <tr><td>Methodology builder</td><td><span class="tag g">Running</span></td><td class="num">64%</td></tr>
-            <tr><td>Reporting</td><td><span class="tag a">Refreshing</span></td><td class="num">47%</td></tr>
-          </table>
+          <p class="mono" style="color:#8d897f;margin:.8rem 0 0">Tools you don&rsquo;t have access to are hidden, not greyed out. Ctrl-click opens a tool in a new tab.</p>
         </div>
       </div>
       <div class="cap">Illustrative sample data</div>
@@ -50,59 +46,78 @@
 
 <section class="dark">
   <div class="wrap">
-    <div class="sheet-label"><b>02</b> Three layers around the tools</div>
+    <div class="sheet-label"><b>02</b> Four layers around the tools</div>
     <div class="two" style="gap:3rem 4rem">
       <div class="rv">
-        <h2 class="display" style="font-size:clamp(2rem,4.4vw,4rem);color:var(--accent-dark)">Support docs</h2>
-        <p>Every tool ships with plain-English guides, how-tos and FAQs written for site and office staff, not engineers. Searchable from inside the hub.</p>
+        <h2 class="display" style="font-size:clamp(2rem,4.4vw,4rem);color:var(--accent-dark)">Built-in help</h2>
+        <p>Every tool has a help button with a plain-English guide it can answer questions from. Problems and ideas go through the same button to one triage list, so nothing gets lost.</p>
         <div class="scr" style="box-shadow:6px 6px 0 var(--accent-dark);border-color:var(--accent-dark)">
-          <div class="scr-bar"><span>docs / search &ldquo;rate library&rdquo;</span></div>
+          <div class="scr-bar"><span>help / report an issue</span></div>
           <div class="scr-body">
-            <div class="field"><span>Guide</span><div><b>Adding a supplier to the rate library</b><br><span class="mute">Quick-start &middot; 3 min</span></div></div>
-            <div class="field"><span>How-to</span><div><b>Fixing a mis-coded line</b><br><span class="mute">Estimators &middot; 2 min</span></div></div>
-            <div class="field"><span>FAQ</span><div><b>Why was this line flagged for review?</b></div></div>
+            <div class="field"><span>Tool</span><div>Accounts inbox</div></div>
+            <div class="field"><span>Issue</span><div>Statement total looks wrong <span class="cite">screenshot attached</span></div></div>
+            <div class="lc"><span class="on">Pending</span><span>Reviewed</span><span>Queued</span><span>Ready for testing</span><span>Closed</span></div>
           </div>
         </div>
       </div>
       <div class="rv">
-        <h2 class="display" style="font-size:clamp(2rem,4.4vw,4rem);color:var(--accent-dark)">Big reporting</h2>
-        <p>Reporting that scales across projects, portfolios and years of data, so questions that took a week of spreadsheets take a click.</p>
+        <h2 class="display" style="font-size:clamp(2rem,4.4vw,4rem);color:var(--accent-dark)">Knowledge base</h2>
+        <p>Published procedures, how-tos and meeting notes in one place, with an ask box that answers from them, names the page, and says so when it has nothing.</p>
         <div class="scr" style="box-shadow:6px 6px 0 var(--accent-dark);border-color:var(--accent-dark)">
-          <div class="scr-bar"><span>reporting / portfolio</span></div>
+          <div class="scr-bar"><span>knowledge / ask</span></div>
+          <div class="scr-body">
+            <div class="chat">
+              <div class="msg me"><small>You</small>Who signs off a hold-point release?</div>
+              <div class="msg ai"><small>Answer</small>The site manager releases it after the inspection is recorded.<span class="cite">Hold points procedure</span><span class="cite">Site meeting notes</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rv">
+        <h2 class="display" style="font-size:clamp(2rem,4.4vw,4rem);color:var(--accent-dark)">Scheduled reports</h2>
+        <p>Jobs that run on a timetable and email the result: forms started but not finished, monthly checks that every project has filed its safety report, and a payables forecast.</p>
+        <div class="scr" style="box-shadow:6px 6px 0 var(--accent-dark);border-color:var(--accent-dark)">
+          <div class="scr-bar"><span>report check / last month</span></div>
           <div class="scr-body">
             <table>
-              <tr><th>Project</th><th class="num">Coded</th><th>Status</th></tr>
-              <tr><td>Project Alpha</td><td class="num">96%</td><td><span class="tag g">On track</span></td></tr>
-              <tr><td>Project Bravo</td><td class="num">81%</td><td><span class="tag a">Review</span></td></tr>
-              <tr><td>Project Charlie</td><td class="num">58%</td><td><span class="tag r">Behind</span></td></tr>
+              <tr><th>Project</th><th>Monthly safety report</th></tr>
+              <tr><td>Project Alpha</td><td><span class="tag g">Completed</span></td></tr>
+              <tr><td>Project Bravo</td><td><span class="tag a">Logged against the wrong month</span></td></tr>
+              <tr><td>Project Charlie</td><td><span class="tag r">Not found</span></td></tr>
             </table>
           </div>
         </div>
       </div>
       <div class="rv">
-        <h2 class="display" style="font-size:clamp(2rem,4.4vw,4rem);color:var(--accent-dark)">Security audit</h2>
-        <p>Access, activity and configuration are monitored and reviewable, so &ldquo;who saw what, and when&rdquo; has an evidence-backed answer.</p>
+        <h2 class="display" style="font-size:clamp(2rem,4.4vw,4rem);color:var(--accent-dark)">Access &amp; health</h2>
+        <p>Admins choose who can use each tool, and the platform watches itself: it probes the tools and emails an alert if a scheduled job has silently stopped.</p>
         <div class="scr" style="box-shadow:6px 6px 0 var(--accent-dark);border-color:var(--accent-dark)">
-          <div class="scr-bar"><span>security / audit log</span></div>
+          <div class="scr-bar"><span>platform / health</span></div>
           <div class="scr-body">
             <table>
-              <tr><th>Time</th><th>Event</th><th>Result</th></tr>
-              <tr><td class="mono-s">09:14</td><td>Export rate library</td><td><span class="tag g">Allowed</span></td></tr>
-              <tr><td class="mono-s">09:31</td><td>Role change</td><td><span class="tag k">Logged</span></td></tr>
-              <tr><td class="mono-s">10:02</td><td>Access outside project</td><td><span class="tag r">Blocked</span></td></tr>
+              <tr><th>Check</th><th>Status</th></tr>
+              <tr><td>Tool probes (daily)</td><td><span class="tag g">All passing</span></td></tr>
+              <tr><td>Weekday digest job</td><td><span class="tag g">Ran 2:00pm</span></td></tr>
+              <tr><td>Monthly report job</td><td><span class="tag r">No schedule found: alert sent</span></td></tr>
             </table>
           </div>
         </div>
-      </div>
-      <div class="rv">
-        <h2 class="display" style="font-size:clamp(2rem,4.4vw,4rem);color:var(--accent-dark)">Why a hub</h2>
-        <ul class="caps" style="border-top-color:var(--paper)">
-          <li><div><strong>Adoption</strong>Staff learn one place, not five separate tools.</div></li>
-          <li><div><strong>Governance</strong>One set of permissions and one audit trail.</div></li>
-          <li><div><strong>Growth</strong>New tools plug in without starting from scratch.</div></li>
-        </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div>
+      <div class="sheet-label"><b>03</b> Why a hub</div>
+      <p class="statement rv">One place to learn, one set of permissions, one list of problems.</p>
+    </div>
+    <ul class="caps rv">
+      <li><div><strong>Adoption</strong>Staff learn one front door, not five separate tools.</div></li>
+      <li><div><strong>Governance</strong>Per-tool access, read-only connections to other systems, and checks that catch a job that quietly stopped.</div></li>
+      <li><div><strong>Growth</strong>A new tool registers once and gets sign-in, help and feedback without starting from scratch.</div></li>
+    </ul>
   </div>
 </section>
 
