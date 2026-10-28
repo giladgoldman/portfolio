@@ -5,6 +5,7 @@ Usage: python3 build.py     (writes the finished .html files next to this script
 Edit SITE below to change name, email or nav.
 """
 import re
+from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -19,6 +20,7 @@ SITE = {
     # Leave empty and the "Hire me" form shows a "not connected yet" message.
     "cv_endpoint": "https://cv-mailer.gilad-goldman91.workers.dev/api/cv",
     "turnstile_site_key": "0x4AAAAAAFo33zi2jqPi56BJ",   # public site key (the secret key lives only in Cloudflare)
+    "url": "https://gld.gldmn.net",
     "year": "2026",
 }
 
@@ -35,6 +37,14 @@ HEAD = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{name}">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{image}">
+<meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0e0e0d">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/Archivo-100-900.woff2" as="font" type="font/woff2" crossorigin>
@@ -42,6 +52,7 @@ HEAD = """<!doctype html>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="poc" role="note"><b>Proof of concept</b> <span>This site is a work in progress, not the final version.</span></div>
 <header class="top">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="{name} home">{name}</a>
@@ -100,7 +111,8 @@ def build():
         title = meta.get("title", SITE["name"])
         title = title if fname == "index.html" else f"{title} · {SITE['name']}"
         html = (
-            HEAD.format(title=title, desc=meta.get("desc", SITE["short"]), name=SITE["name"], nav=nav)
+            HEAD.format(title=escape(title), desc=escape(meta.get("desc", SITE["short"])), name=SITE["name"], nav=nav,
+                        url=SITE["url"] + ("/" if fname == "index.html" else "/" + fname), image=SITE["url"] + "/img/portrait.jpg")
             + body
             + FOOT.format(name=SITE["name"], short=SITE["short"], year=SITE["year"])
         )
@@ -109,6 +121,8 @@ def build():
         key = SITE["form_access_key"]
         html = html.replace("{{access_key}}", f'<input type="hidden" name="access_key" value="{key}">' if key else "")
         html = html.replace("{{boxing}}", BOXING if (ROOT / "img" / "boxing.jpg").exists() else "")
+        if fname == "404.html":   # served from any path, so asset and page links must be root-relative
+            html = re.sub(r'(href|src)="(?!https?:|#|/|mailto:)', r'\1="/', html).replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta name="robots" content="noindex">', 1)
         (ROOT / fname).write_text(html)
         print("built", fname)
 
