@@ -1,5 +1,5 @@
 <!-- title: Methodology Builder -->
-<!-- desc: Generate sequenced, reviewable construction methodologies from scope, site conditions and constraints. -->
+<!-- desc: Turns a tender pack into a first-draft project methodology, with every fact traced to its source, drafted sections for review, and checks against the tender's requirements. -->
 
 <section class="tp-head">
   <div class="wrap">
@@ -7,12 +7,12 @@
     <div class="tp-grid">
       <h1 class="display">Method&shy;ology<br><em>Builder</em></h1>
       <div>
-        <p class="lede" style="margin-bottom:1.6rem">Scope, site conditions and constraints in. A sequenced, reviewable methodology out, with the reasoning visible so experienced people can challenge it.</p>
+        <p class="lede" style="margin-bottom:1.6rem">A tender pack in. A first-draft methodology out, written as a document where every fact is one click from the words it came from. The team amends a draft instead of starting from a blank page.</p>
         <dl class="titleblock">
-          <div><dt>Tool</dt><dd>002 / Planning &amp; delivery</dd></div>
+          <div><dt>Tool</dt><dd>002 / Tendering &amp; delivery</dd></div>
           <div><dt>Role</dt><dd>Designed + built</dd></div>
-          <div><dt>Inputs</dt><dd>Scope, drawings, constraints</dd></div>
-          <div><dt>Outputs</dt><dd>Issued methodology document</dd></div>
+          <div><dt>Inputs</dt><dd>Tender pack, programme (optional)</dd></div>
+          <div><dt>Outputs</dt><dd>Word methodology, checks, queries</dd></div>
         </dl>
       </div>
     </div>
@@ -21,35 +21,39 @@
 
 <section>
   <div class="wrap">
-    <div class="sheet-label"><b>01</b> The builder</div>
+    <div class="sheet-label"><b>01</b> The draft</div>
     <div class="scr rv">
-      <div class="scr-bar"><i></i><i></i><i></i><span>methodology-builder / transfer slab pour / draft 3</span><em>2 hold points</em></div>
+      <div class="scr-bar"><i></i><i></i><i></i><span>methodology-builder / Tender Alpha</span><em>4 to do</em></div>
+      <div class="scr-body" style="padding-bottom:0">
+        <div class="steps"><span class="done">1 Upload &#10003;</span><span class="on">2 Draft</span><span>3 Export</span></div>
+      </div>
       <div class="split" style="grid-template-columns:1.5fr 1fr">
         <div>
-          <p class="mono" style="color:#8d897f;margin:0 0 .6rem">Sequence</p>
-          <div class="flowg">
-            <span class="node">Survey &amp; set-out</span><span class="arw"></span><span class="node">Formwork</span><span class="arw"></span><span class="node">Reo fix</span><span class="arw"></span><span class="node hold">Hold: pre-pour</span>
+          <div class="legend">
+            <span class="pv t">Stated in the tender</span><span class="pv y">Your answer</span><span class="pv a">Assumed: check</span><span class="pv s">Standard wording</span><span class="pv n">Needs you</span><span class="pv b">TBC</span>
           </div>
-          <div class="flowg" style="margin-top:.7rem">
-            <span class="node dec">Weather OK?</span><span class="arw"></span><span class="node sel">Pump set-up</span><span class="arw"></span><span class="node">Pour &amp; finish</span><span class="arw"></span><span class="node">Cure</span><span class="arw"></span><span class="node hold">Hold: strip</span>
-          </div>
-          <p class="mono" style="color:#8d897f;margin:1.4rem 0 .2rem">Programme window</p>
-          <div class="gantt">
-            <div>Set-out<span><i style="left:0;width:10%"></i></span></div>
-            <div>Formwork<span><i style="left:10%;width:25%"></i></span></div>
-            <div>Reo<span><i style="left:30%;width:25%"></i></span></div>
-            <div>Pour<span><i style="left:62%;width:8%"></i></span></div>
-            <div>Cure &amp; strip<span><i style="left:70%;width:28%"></i></span></div>
+          <div class="mdoc">
+            <h6>3. Site establishment</h6>
+            <p>The works are at <span class="pv t">Project Alpha, 120 Example Street</span>. Deliveries use <span class="pv y">the north gate</span> between <span class="pv t">7am and 3pm</span>. The building is <span class="pv a">assumed to remain in use</span> during the works.</p>
+            <p><span class="pv s">Hoarding and protection are installed before demolition begins.</span> Dust is controlled by <span class="pv n">confirm dust-control method</span>, and practical completion is <span class="pv b">TBC</span>.</p>
+            <div class="gen">
+              <small>Drafted for this job &middot; Staging and occupant interface</small>
+              Works are staged by floor so the occupied levels keep access and amenities throughout&hellip;
+              <div class="mb"><span class="go">Accept as is</span><span>Edit</span><span>Regenerate</span><span>Remove</span><span>Sources (3)</span></div>
+            </div>
           </div>
         </div>
         <div>
-          <p class="mono" style="color:var(--accent-dark);margin:0 0 .6rem">Inspector: Pump set-up</p>
-          <div class="field"><span>Resources</span><div>Concrete pump, 2 labourers, spotter</div></div>
-          <div class="field"><span>Depends on</span><div>Reo inspection signed off, truck schedule confirmed</div></div>
-          <div class="field"><span>Risk</span><div>Overhead services near boom path <span class="tag r">High</span></div></div>
-          <div class="field"><span>Control</span><div>Exclusion zone, spotter, isolate if required</div></div>
-          <div class="field"><span>Standards</span><div>Project spec 03 30 00 <span class="cite">&sect;2.4</span></div></div>
-          <div class="field"><span>Review</span><div><span class="tag a">Awaiting site manager</span></div></div>
+          <p class="mono" style="color:var(--accent-dark);margin:0 0 .6rem">To do</p>
+          <ul class="todo">
+            <li><b style="color:#ff7a70">Needs you</b><span>Confirm the dust-control method</span></li>
+            <li><b style="color:#f2c14a">Check</b><span>Building assumed in use. Tender reason: occupant remains on level 2</span></li>
+            <li><b style="color:#f2c14a">Choose</b><span>The tender gives two completion dates: 12 Dec in one document, 19 Dec in another. Both offered.</span></li>
+            <li><b style="color:var(--accent-dark)">Review</b><span>Drafted section: staging and occupant interface</span></li>
+          </ul>
+          <p class="mono" style="color:#8d897f;margin:0 0 .3rem">Assumptions about this job</p>
+          <div class="field"><span>Occupied</span><div>Yes <span class="cite">Brief &sect;1.4</span></div></div>
+          <div class="field"><span>Hazmat</span><div>No <span class="cite">no register supplied</span></div></div>
         </div>
       </div>
       <div class="cap">Illustrative sample data</div>
@@ -61,26 +65,47 @@
   <div class="wrap two">
     <div>
       <div class="sheet-label"><b>02</b> What it does</div>
-      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">Inputs in. Defensible method out.</h2>
+      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">Upload, draft, export.</h2>
     </div>
     <ol class="caps rv" style="border-top-color:var(--paper)">
-      <li><div><strong>Describe the job</strong>Scope, drawings, site constraints, programme windows and the standards that apply.</div></li>
-      <li><div><strong>Sequence it</strong>Activities are ordered with dependencies, hold points and resourcing.</div></li>
-      <li><div><strong>Challenge it</strong>Risks and controls sit next to each step so experienced people can push back fast.</div></li>
-      <li><div><strong>Issue it</strong>Export in your template, and reuse as the starting point for the next similar job.</div></li>
+      <li><div><strong>Upload the pack</strong>Drop in the tender zip. Every file is listed with what it is and whether it was read. Prices and contract sums are left out on purpose, and the files are deleted once read.</div></li>
+      <li><div><strong>Draft as a document</strong>Approved wording, this job&rsquo;s facts and written passages come together. Click any phrase to see its source, pick another option or type your own.</div></li>
+      <li><div><strong>Check it</strong>The draft is matched against the tender&rsquo;s requirements and checked for slips before anyone relies on it.</div></li>
+      <li><div><strong>Export to Word</strong>With highlighted flags and review notes for the team, or a clean version. A single editor at a time keeps the draft from being overwritten.</div></li>
     </ol>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="sheet-label"><b>03</b> Principles</div>
+    <div class="sheet-label"><b>03</b> The checks</div>
+    <div class="scr rv">
+      <div class="scr-bar"><i></i><i></i><i></i><span>methodology-builder / checks</span><em>1 conflict &middot; 2 flags</em></div>
+      <div class="scr-body">
+        <table>
+          <tr><th>Check</th><th>Finding</th><th>Result</th></tr>
+          <tr><td>Requirement coverage</td><td>Waste diversion of at least 80% <span class="cite">&sect;7.2</span> matches the draft</td><td><span class="tag g">Matched</span></td></tr>
+          <tr><td>Tender conformance</td><td>Draft commits to 70% diversion, below the tender&rsquo;s 80%</td><td><span class="tag r">Lower than tender</span></td></tr>
+          <tr><td>Nominated platform</td><td>Tender names a defect platform. Draft mentions a different one. It is raised for you to decide, never swapped.</td><td><span class="tag r">Conflict</span></td></tr>
+          <tr><td>Earlier tender names</td><td>&ldquo;Client X&rdquo; appears in section 5, from a previous job</td><td><span class="tag a">Flag</span></td></tr>
+          <tr><td>Unsupported claims</td><td>&ldquo;Typically 95% diversion&rdquo; is not in the tender, your answers or the approved wording</td><td><span class="tag a">Flag</span></td></tr>
+        </table>
+        <p class="mono" style="color:#8d897f;margin:1rem 0 0">Also produces: pictures to supply &middot; oddities in the tender worth raising in the clarifications return</p>
+      </div>
+      <div class="cap">Illustrative sample data</div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="sheet-label"><b>04</b> Principles</div>
     <div class="two">
       <p class="statement rv">Built to support experienced judgement, not replace it.</p>
-      <ul class="caps rv">
-        <li><div><strong>Visible reasoning</strong>Every step shows why it&rsquo;s there and what it depends on.</div></li>
-        <li><div><strong>Human sign-off</strong>The tool drafts and structures. Qualified people review and approve.</div></li>
-        <li><div><strong>Reusable know-how</strong>Capture how your best people build so each job doesn&rsquo;t start from a blank page.</div></li>
+      <ul class="caps rv" style="border-top-color:var(--paper)">
+        <li><div><strong>Sources on every fact</strong>Each fact carries the tender words it came from. Facts it can&rsquo;t verify against the tender text are dropped.</div></li>
+        <li><div><strong>Nothing swapped silently</strong>Where the tender disagrees with itself or the draft, both options are shown and a person chooses.</div></li>
+        <li><div><strong>Human sign-off</strong>It drafts and flags. Qualified people review, edit and approve, and score each section so the tool improves.</div></li>
       </ul>
     </div>
   </div>

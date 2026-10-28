@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agents · Gilad Goldman</title>
-<meta name="description" content="Focused AI agents for construction: design advice, incident report building and more.">
+<meta name="description" content="Focused AI agents for construction: incident report forms, design-requirement advice with referenced answers, and more on the bench.">
 <link rel="canonical" href="https://gld.gldmn.net/agents.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Gilad Goldman">
 <meta property="og:title" content="Agents · Gilad Goldman">
-<meta property="og:description" content="Focused AI agents for construction: design advice, incident report building and more.">
+<meta property="og:description" content="Focused AI agents for construction: incident report forms, design-requirement advice with referenced answers, and more on the bench.">
 <meta property="og:url" content="https://gld.gldmn.net/agents.html">
 <meta property="og:image" content="https://gld.gldmn.net/img/portrait.jpg">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
         <dl class="titleblock">
           <div><dt>Tool</dt><dd>004 / Agents</dd></div>
           <div><dt>Role</dt><dd>Designed + built</dd></div>
-          <div><dt>Built</dt><dd>Design advice, incident reports</dd></div>
+          <div><dt>Built</dt><dd>Incident forms, design advice</dd></div>
           <div><dt>Principle</dt><dd>Scoped, referenced, reviewed</dd></div>
         </dl>
       </div>
@@ -70,30 +70,29 @@
   <div class="wrap">
     <div class="sheet-label"><b>01</b> Incident report builder</div>
     <div class="scr rv">
-      <div class="scr-bar"><i></i><i></i><i></i><span>incident-report-builder / draft IR-0147</span><em>7 of 11 fields</em></div>
+      <div class="scr-bar"><i></i><i></i><i></i><span>incident-report-builder / new incident</span><em>2 of 4 forms ready</em></div>
       <div class="split" style="grid-template-columns:1.1fr 1fr">
         <div>
           <div class="chat">
-            <div class="msg ai"><small>Agent</small>What happened, and where on site?</div>
-            <div class="msg me"><small>Supervisor</small>Worker slipped near the L2 stair. No injury.</div>
-            <div class="msg ai"><small>Agent</small>Was the area wet or obstructed? Any photos? Was anyone else nearby?</div>
-            <div class="msg me"><small>Supervisor</small>Wet from the morning pour wash-down. Two photos attached.</div>
-            <div class="msg ai"><small>Agent</small>Got it. Was the area signed or barricaded at the time?</div>
+            <div class="msg ai"><small>Agent</small>Tell me what happened, who was involved, and when and where.</div>
+            <div class="msg me"><small>Supervisor</small>A subcontractor&rsquo;s labourer slipped on the L2 stair this morning. He&rsquo;s bruised his wrist and is seeing a doctor this afternoon.</div>
+            <div class="msg ai"><small>Agent</small>Thanks. Was the stair wet or obstructed, and was the area signed or barricaded?</div>
+            <div class="msg me"><small>Supervisor</small>Wet from the wash-down. No signage.</div>
+            <div class="msg ai"><small>Agent</small>Got it. Which company does he work for, and has anyone been told he is seeing a doctor?</div>
           </div>
         </div>
         <div>
-          <p class="mono" style="color:var(--accent-dark);margin:0 0 .6rem">Report, live</p>
-          <div class="field"><span>Type</span><div>Near miss <span class="tag g">Set</span></div></div>
-          <div class="field"><span>Location</span><div>Level 2, east stair</div></div>
-          <div class="field"><span>Description</span><div>Worker slipped on wet surface following wash-down</div></div>
-          <div class="field"><span>Injury</span><div>None reported</div></div>
-          <div class="field"><span>Evidence</span><div>2 photos</div></div>
-          <div class="field empty"><span>Controls</span><div><em>Asking&hellip;</em></div></div>
-          <div class="field empty"><span>Actions</span><div><em>Pending</em></div></div>
+          <p class="mono" style="color:var(--accent-dark);margin:0 0 .6rem">Forms this incident needs</p>
+          <div class="field"><span>First aid</span><div>Every incident <span class="tag o">Drafted</span></div></div>
+          <div class="field"><span>Incident</span><div>Reportable or high-risk events <span class="tag o">Drafted</span></div></div>
+          <div class="field"><span>Doctor</span><div>Letter to treating doctor, subcontractor version <span class="tag a">Needs company</span></div></div>
+          <div class="field"><span>Return to work</span><div>Only if time is lost <span class="tag k">Not needed yet</span></div></div>
+          <div class="mb"><span class="go">Generate &amp; download forms</span><span>Word files, zipped</span></div>
         </div>
       </div>
-      <div class="cap">Illustrative conversation</div>
+      <div class="cap">Illustrative conversation. It prepares the forms; people still submit them.</div>
     </div>
+    <p class="mute rv" style="max-width:64ch;margin-top:1.4rem">It works out which forms apply, asks for the missing details one question at a time, and hands over completed Word documents. If someone arrives from the compliance assistant, their description is already filled in.</p>
   </div>
 </section>
 
@@ -101,25 +100,27 @@
   <div class="wrap two">
     <div>
       <div class="sheet-label"><b>02</b> Design advice agent</div>
-      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">Buildability, asked early.</h2>
-      <p class="lede rv mute">Ask a buildability question and get a structured, referenced answer. Good for early design review, clash discussions and value engineering.</p>
+      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">Requirements, referenced.</h2>
+      <p class="lede rv mute">Ask a design-requirement question for a project and get an answer that names the Act, regulation or code it relies on, and says which sources it checked live and which you should verify.</p>
     </div>
     <div class="scr rv" style="box-shadow:10px 10px 0 var(--accent-dark);border-color:var(--accent-dark)">
       <div class="scr-bar"><i></i><i></i><i></i><span>design-advice</span></div>
       <div class="scr-body">
+        <div class="bench" style="margin:0 0 .8rem"><span class="tag k">Class 6 retail</span><span class="tag k">Melbourne</span><span class="tag k">Design development</span></div>
         <div class="chat">
-          <div class="msg me"><small>You</small>Can the transfer slab be poured in one go at this thickness?</div>
+          <div class="msg me"><small>You</small>What access requirements apply to this fitout?</div>
           <div class="msg ai"><small>Agent</small>
-            <b>Likely yes, with caveats.</b>
+            <b>Accessible entry and circulation apply.</b>
             <ul style="margin:.5rem 0 0;padding-left:1.1rem">
-              <li>Pour volume suggests staged pump set-up <span class="cite">Drawing S-201</span></li>
-              <li>Thermal control needed at this depth <span class="cite">Spec 03 30 00</span></li>
-              <li><span class="tag k">Suggestion</span> Consider a mid-pour cold joint at the grid-C line</li>
+              <li>Permit and approval process <span class="cite">Building Regulations 2018 (Vic)</span> <span class="tag o">Checked live</span></li>
+              <li>Access to and within the tenancy <span class="cite">NCC 2022 Vol. 1</span> <span class="tag a">Verify</span></li>
+              <li>Separate duty beyond the code <span class="cite">Disability Discrimination Act 1992 (Cth)</span> <span class="tag a">Verify</span></li>
+              <li><span class="tag k">Suggestion</span> Confirm the accessible path with your certifier before the permit set is issued</li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="cap">Illustrative conversation. Facts and suggestions are labelled apart.</div>
+      <div class="cap">Illustrative conversation. Checks facts against the sources and flags what to verify. Doesn&rsquo;t know site permits or council conditions.</div>
     </div>
   </div>
 </section>
@@ -130,9 +131,9 @@
     <div class="two">
       <p class="statement rv">Same principles, more jobs.</p>
       <ul class="caps rv">
-        <li><div><strong>Compliance chat agents</strong>Answer &ldquo;what do I need to do here?&rdquo; against your management system and procedures.</div></li>
-        <li><div><strong>Knowledge base agent</strong>Finds the right internal document and cites it.</div></li>
-        <li><div><strong>RFI drafter &middot; meeting minutes &middot; variation assistant</strong>Concepts: tell me which would save your team the most time.</div></li>
+        <li><div><strong>Compliance chat</strong>Describe what is happening on site and it finds the procedures, forms and permits that apply in your management system.</div></li>
+        <li><div><strong>Knowledge base answers</strong>Asks published pages a question, quotes them, names the page, and says so when nothing relevant exists.</div></li>
+        <li><div><strong>Scope writing &middot; procurement schedule &middot; resourcing forecast</strong>Each does one job inside the same hub, with the same sign-in, help and review habits.</div></li>
       </ul>
     </div>
   </div>
