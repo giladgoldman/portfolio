@@ -26,7 +26,7 @@ SITE = {
 }
 
 NAV = [
-    ("index.html#register", "Work", "index.html"),
+    ("/#register", "Work", "index.html"),
     ("services.html", "Services", "services.html"),
     ("about.html", "About", "about.html"),
 ]
@@ -67,7 +67,7 @@ HEAD = """<!doctype html>
 <div class="poc" role="note"><b>Proof of concept</b> <span>This site is a work in progress, not the final version.</span></div>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="{name} home">{name}</a>
+    <a class="logo" href="/" aria-label="{name} home">{name}</a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav" aria-label="Main">
       <ul>
@@ -98,7 +98,7 @@ FOOT = """</main>
   <div class="wrap">
     <span>&copy; {year} {name}</span>
     <span>{short}</span>
-    <span><a href="index.html#register">Work</a> &nbsp;/&nbsp; <a href="services.html">Services</a> &nbsp;/&nbsp; <a href="about.html">About</a> &nbsp;/&nbsp; <a href="contact.html">Contact</a></span>
+    <span><a href="/#register">Work</a> &nbsp;/&nbsp; <a href="services.html">Services</a> &nbsp;/&nbsp; <a href="about.html">About</a> &nbsp;/&nbsp; <a href="contact.html">Contact</a></span>
   </div>
 </footer>
 <script src="js/main.js"></script>
