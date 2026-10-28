@@ -11,9 +11,8 @@ Static site, no dependencies. Local only: never pushed to GitHub. Full handoff n
 
 ## Folder
 - `src/pages/` page sources (edit these)  ·  `*.html` generated pages  ·  `css/` `js/` `fonts/` `img/`
-- `design/` palette sheets (orange, maroon) and `apply-oxblood.py` (already applied)
+- `design/` `apply-oxblood.py` (already applied). The palette sheets and the old preview moved to the private portfolio-assets repo (they embed the photos).
 - `originals/` the original photos (only in the backup zip): used to recrop the hero portrait and re-make the web images
-- `preview.html` single-file preview of every page
 
 ## Still open
 Contact form endpoint (set `form_endpoint` in build.py), boxing photo (add `img/boxing.jpg`, opponent's face blurred), company link check, Copy options choices, Health Tracker AI confirmation, services pricing, tools section feedback.
