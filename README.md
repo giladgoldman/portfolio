@@ -7,7 +7,7 @@ Live at https://gld.gldmn.net. A static site (no framework, no runtime dependenc
 | Piece | Where | Notes |
 | --- | --- | --- |
 | Site source | this repo (`src/pages/*.html`, `css/`, `js/`, `fonts/`, `build.py`) | Edit `src/pages`, not the generated root `.html` files. |
-| Photos | private repo `giladgoldman/portfolio-assets` (`img/*.jpg`) | Fetched at deploy time with the `ASSETS_TOKEN` Actions secret. Not stored here. |
+| Photos | private repo `giladgoldman/portfolio-assets` (`img/*.jpg`, plus `img/*.webp` responsive variants) | Fetched at deploy time with the `ASSETS_TOKEN` Actions secret. Not stored here. |
 | CV request form | private repo `giladgoldman/cv-mailer` (a Cloudflare Worker) | Emails the Tech or Construction CV via Resend. See that repo's README. |
 | Contact form | Web3Forms (public access key in `build.py`, hCaptcha enabled in the Web3Forms dashboard) | Emails messages to the owner. The owner's address is never on the page. |
 | Hosting and domain | GitHub Pages; `CNAME` = `gld.gldmn.net`; DNS is a `gld` CNAME to `giladgoldman.github.io` at Squarespace Domains | HTTPS enforced in Settings -> Pages. |
@@ -20,7 +20,7 @@ Push or merge to `main`. `.github/workflows/pages.yml` fetches the photos, runs 
 python3 build.py                       # regenerate the root .html files from src/pages
 python3 -m http.server 8000            # preview at http://localhost:8000
 ```
-Photos are not in this repo, so copy `img/*.jpg` from `portfolio-assets` into `img/` to see them locally (they are git-ignored here).
+Photos are not in this repo, so copy `img/*.jpg` and `img/*.webp` from `portfolio-assets` into `img/` to see them locally (they are git-ignored here).
 
 ## Configuration (top of `build.py`)
 - `form_endpoint` / `form_access_key`: Web3Forms endpoint and public key for the message form.
