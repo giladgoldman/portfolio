@@ -1,5 +1,5 @@
 <!-- title: Health Tracker -->
-<!-- desc: A personal diet, training and body tracker that Gilad built himself in Notion, using AI to estimate nutrition. -->
+<!-- desc: A personal food and exercise tracker Gilad built in Notion with AI: what goes in and what goes out in one tool, with the data in a workspace he owns. -->
 
 <section class="tp-head">
   <div class="wrap">
@@ -7,12 +7,12 @@
     <div class="tp-grid">
       <h1 class="display">Health<br><em>Tracker</em></h1>
       <div>
-        <p class="lede" style="margin-bottom:1.6rem">A side project that tracks what I eat and how I train, keeping my personal health data exactly that, personal.</p>
+        <p class="lede" style="margin-bottom:1.6rem">I wanted what goes in and what goes out in one place, in a tool I own. So I built it: meals, lifting, walks and rides together in one tracker, with my health data in my own workspace instead of someone else&rsquo;s app.</p>
         <dl class="titleblock">
           <div><dt>Tool</dt><dd>005 / Side project</dd></div>
           <div><dt>Role</dt><dd>Designed + built</dd></div>
-          <div><dt>Lives in</dt><dd>Notion, plus AI</dd></div>
-          <div><dt>Tracks</dt><dd>Food, training, body</dd></div>
+          <div><dt>Data</dt><dd>Mine, in my own Notion</dd></div>
+          <div><dt>Tracks</dt><dd>Food in, exercise out</dd></div>
         </dl>
       </div>
     </div>
@@ -21,13 +21,13 @@
 
 <section>
   <div class="wrap">
-    <div class="sheet-label"><b>01</b> The daily dashboard</div>
+    <div class="sheet-label"><b>01</b> Input and output, one dashboard</div>
     <div class="scr rv">
       <div class="scr-bar"><i></i><i></i><i></i><span>health-tracker / today</span><em>personal</em></div>
       <div class="scr-body">
         <div class="kpis five">
-          <div class="kpi"><small>Calories in</small><strong>2,150</strong><div class="bar" style="margin-top:.5rem"><b style="width:82%"></b></div></div>
-          <div class="kpi"><small>Calories burned</small><strong>2,600</strong><div class="bar" style="margin-top:.5rem"><b style="width:90%"></b></div></div>
+          <div class="kpi"><small>In (food)</small><strong>2,150</strong><div class="bar" style="margin-top:.5rem"><b style="width:82%"></b></div></div>
+          <div class="kpi"><small>Out (exercise)</small><strong>2,600</strong><div class="bar" style="margin-top:.5rem"><b style="width:90%"></b></div></div>
           <div class="kpi"><small>Protein</small><strong>155 g</strong><div class="bar" style="margin-top:.5rem"><b style="width:78%"></b></div></div>
           <div class="kpi"><small>Fibre</small><strong>28 g</strong><div class="bar" style="margin-top:.5rem"><b style="width:93%"></b></div></div>
           <div class="kpi"><small>Fat</small><strong>70 g</strong><div class="bar" style="margin-top:.5rem"><b style="width:64%"></b></div></div>
@@ -37,6 +37,12 @@
           <tr><td>Breakfast</td><td>Eggs, toast, avocado</td><td class="num">520</td><td class="num">26 g</td></tr>
           <tr><td>Lunch</td><td>Chicken, rice, salad</td><td class="num">680</td><td class="num">48 g</td></tr>
           <tr><td>Snack</td><td>Protein shake, banana</td><td class="num">310</td><td class="num">32 g</td></tr>
+        </table>
+        <table style="margin-top:1rem">
+          <tr><th>Exercise</th><th>What I did</th><th class="num">kcal out (est.)</th><th class="num">Time</th></tr>
+          <tr><td>Lifting</td><td>Upper body, 4 lifts</td><td class="num">320</td><td class="num">45 min</td></tr>
+          <tr><td>Walk</td><td>5.8 km before work</td><td class="num">280</td><td class="num">62 min</td></tr>
+          <tr><td>Bike ride</td><td>22 km, evening</td><td class="num">610</td><td class="num">54 min</td></tr>
         </table>
       </div>
       <div class="cap">Illustrative sample data, not my real data</div>
@@ -48,14 +54,14 @@
   <div class="wrap two">
     <div>
       <div class="sheet-label"><b>02</b> What it does</div>
-      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">Tell it what you ate. It does the maths.</h2>
+      <h2 class="display rv" style="font-size:clamp(2.4rem,6vw,5.5rem)">Food in. Exercise out. One place.</h2>
     </div>
     <ol class="caps rv" style="border-top-color:var(--paper)">
       <li><div><strong>Meals in plain English</strong>I describe what I ate. AI estimates the calories, protein, fat and fibre and logs it.</div></li>
-      <li><div><strong>Training and lifts</strong>Separate logs for exercise and for lifting, so output can be tracked over time.</div></li>
-      <li><div><strong>Body tracking</strong>Weight, BMI and muscle and fat in one place.</div></li>
-      <li><div><strong>Daily dashboards</strong>Calories in and out, plus protein, fibre and fat, at a glance.</div></li>
-      <li><div><strong>Programs and trends</strong>Training programs, and a summary of averages and trends.</div></li>
+      <li><div><strong>Lifting, walks and rides</strong>Weights, cardio walks and bike rides are logged next to the food, instead of a separate app for each.</div></li>
+      <li><div><strong>One daily balance</strong>Calories in and out, plus protein, fibre and fat, side by side at a glance.</div></li>
+      <li><div><strong>Body and trends</strong>Weight, BMI, muscle and fat, training programs, and a summary of averages and trends.</div></li>
+      <li><div><strong>Yours to keep</strong>It lives in my own Notion workspace, not in a fitness app&rsquo;s database. I can export it, reshape it or add to it whenever I like.</div></li>
     </ol>
   </div>
 </section>
@@ -67,12 +73,17 @@
       <div class="scr-bar"><i></i><i></i><i></i><span>health-tracker / training and body</span><em>last 8 weeks</em></div>
       <div class="split" style="grid-template-columns:1.2fr 1fr">
         <div>
-          <p class="mono" style="color:#8d897f;margin:0 0 .6rem">Lift log</p>
+          <p class="mono" style="color:#8d897f;margin:0 0 .6rem">Lift and cardio log</p>
           <table>
             <tr><th>Lift</th><th class="num">Sets</th><th class="num">Reps</th><th class="num">Top weight</th></tr>
             <tr><td>Squat</td><td class="num">4</td><td class="num">6</td><td class="num">100 kg</td></tr>
             <tr><td>Bench press</td><td class="num">4</td><td class="num">8</td><td class="num">80 kg</td></tr>
             <tr><td>Row</td><td class="num">3</td><td class="num">10</td><td class="num">70 kg</td></tr>
+          </table>
+          <table style="margin-top:1rem">
+            <tr><th>Cardio</th><th class="num">Distance</th><th class="num">Time</th><th class="num">This week</th></tr>
+            <tr><td>Walk</td><td class="num">5.8 km</td><td class="num">62 min</td><td class="num">4 sessions</td></tr>
+            <tr><td>Bike ride</td><td class="num">22 km</td><td class="num">54 min</td><td class="num">2 sessions</td></tr>
           </table>
         </div>
         <div>
@@ -94,7 +105,7 @@
       <p class="statement rv">Proof that I build things for fun too.</p>
     </div>
     <div class="rv">
-      <p class="lede">It isn&rsquo;t a product and it isn&rsquo;t a standalone app. It lives in Notion. It&rsquo;s here because it&rsquo;s a good example of using AI to build something genuinely useful for one person, quickly, without a development team.</p>
+      <p class="lede">It isn&rsquo;t a product and it isn&rsquo;t a standalone app. Most trackers do one job, meals or weights or cardio, and keep the data in their own system. I wanted input and output together in one tool, and I wanted to own the data, so it lives in my own Notion. It&rsquo;s here because it&rsquo;s a good example of using AI to build something genuinely useful for one person, quickly, without a development team.</p>
       <p class="mute">The same thinking sits behind the construction tools on this site.</p>
     </div>
   </div>
