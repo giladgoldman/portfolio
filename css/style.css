@@ -414,3 +414,12 @@ section.dark :focus-visible { outline-color: var(--accent-dark); }
 
 /* word-length stat values (e.g. Multiple) need a smaller numeral than digits */
 .nums .n.word { font-size: clamp(1.7rem, 3.6vw, 3.6rem); letter-spacing: -.03em; display: flex; align-items: flex-end; height: calc(.9 * clamp(2.6rem, 6.4vw, 6rem)); }  /* same height as the digit rows so labels line up */
+
+/* social icon links (contact page) */
+.socials { margin-top: 2.4rem; }
+.socials p { margin: 0 0 .8rem; color: var(--mute); }
+.socials-row { display: flex; flex-wrap: wrap; gap: .7rem; }
+.socials-row a { display: grid; place-items: center; width: 48px; height: 48px; color: var(--ink); background: #fff; border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); transition: transform .15s, box-shadow .15s, background .15s, color .15s; }
+.socials-row a:hover, .socials-row a:focus-visible { background: var(--accent); color: var(--accent-ink); transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); outline: none; }
+.socials-row a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.socials-row svg { width: 22px; height: 22px; fill: currentColor; }
