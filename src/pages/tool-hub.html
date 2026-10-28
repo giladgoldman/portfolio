@@ -75,7 +75,7 @@
       </div>
       <div class="rv">
         <h2 class="display" style="font-size:clamp(2rem,4.4vw,4rem);color:var(--accent-dark)">Scheduled reports</h2>
-        <p>Jobs that run on a timetable and email the result: forms started but not finished, monthly checks that every project has filed its safety report, and a payables forecast.</p>
+        <p>Jobs that run on a timetable and email the result: incomplete forms, monthly checks that every project has filed its safety report, and a payables forecast.</p>
         <div class="scr" style="box-shadow:6px 6px 0 var(--accent-dark);border-color:var(--accent-dark)">
           <div class="scr-bar"><span>report check / last month</span></div>
           <div class="scr-body">
@@ -118,6 +118,23 @@
       <li><div><strong>Governance</strong>Per-tool access, read-only connections to other systems, and checks that catch a job that quietly stopped.</div></li>
       <li><div><strong>Growth</strong>A new tool registers once and gets sign-in, help and feedback without starting from scratch.</div></li>
     </ul>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap two">
+    <div>
+      <div class="sheet-label"><b>04</b> How it&rsquo;s built</div>
+      <p class="statement rv">One front door, built so every new tool plugs straight in.</p>
+    </div>
+    <ul class="caps rv" style="border-top-color:var(--paper)">
+      <li><div><strong>Frontend</strong>React 18 with Vite, styled with Tailwind and a shared component library, so every tool looks and behaves the same.</div></li>
+      <li><div><strong>Backend</strong>An Express API in a monorepo of npm workspaces. Each tool is its own service, deployed to Railway.</div></li>
+      <li><div><strong>Sign-in</strong>A one-time code is emailed through Microsoft Graph, limited to company addresses. Tool access lists are stored in the database and applied before a tile is even shown.</div></li>
+      <li><div><strong>Help and feedback</strong>Help answers come from a plain-English guide for each tool. Every report lands in one triage database in Notion, and a check fails the build if a new tool isn&rsquo;t wired in.</div></li>
+      <li><div><strong>Monitoring</strong>Scheduled probes exercise each tool, and a separate check confirms every scheduled job still has a live schedule.</div></li>
+    </ul>
+    <div class="bench rv" style="grid-column:1/-1;margin-top:1.6rem"><span class="mono mute" style="margin-right:.6rem">Stack</span><span class="chip">React 18</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">shadcn/ui</span><span class="chip">Radix UI</span><span class="chip">Express</span><span class="chip">SQLite</span><span class="chip">Notion API</span><span class="chip">Microsoft Graph API</span><span class="chip">npm workspaces</span><span class="chip">Canary probes</span><span class="chip">Railway</span></div>
   </div>
 </section>
 
