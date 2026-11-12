@@ -75,7 +75,7 @@ if (form) {
       if (!res.ok) throw new Error(res.status);
       track('generate_lead', { method: 'contact_form', topic: data.topic });
       form.reset(); if (window.hcaptcha) window.hcaptcha.reset();
-      say('Thanks! Your message is on its way. I\'ll reply within a couple of business days.', true);
+      say('Thanks. Your message is on its way. I\'ll reply within a couple of business days.', true);
     } catch (err) { track('form_error', { form: 'contact_form' }); say('Something went wrong sending that. Please try again in a moment.', false); }
     btn.disabled = false;
   });
@@ -162,7 +162,7 @@ if (cvForm && topic && form) {
       const out = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(out.error || res.status);
       track('generate_lead', { method: 'cv_request', audience: d.audience });
-      cvForm.reset(); cvSay('Done! Check your inbox for my CV (and your spam folder, just in case).', true);
+      cvForm.reset(); cvSay('Sent. Check your inbox for my CV, and your spam folder just in case.', true);
     } catch (err) { track('form_error', { form: 'cv_form' }); cvSay(err.name === 'TimeoutError' ? 'That is taking too long. Please try again in a moment.' : err.message && isNaN(err.message) ? err.message : 'Something went wrong sending that. Please try again in a moment.', false); }
     if (window.turnstile && tsId !== null && tsId !== -1) window.turnstile.reset(tsId);
     btn.disabled = false;

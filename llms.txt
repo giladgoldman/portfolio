@@ -1,6 +1,6 @@
 # Gilad Goldman
 
-> Portfolio site of Gilad Goldman, a construction and technology specialist based in Melbourne, Australia. Fifteen years across estimating, product, customer success and systems in the AEC industry, now building internal tools, automations and AI agents for construction businesses. The site is a proof of concept.
+> Portfolio site of Gilad Goldman, a construction and technology specialist based in Melbourne, Australia. Fifteen years across estimating, product, customer success and systems in construction, now building and supporting internal tools, automations and AI agents for construction businesses. The site is a proof of concept.
 
 Gilad is a former estimator with a B.App.Sc from RMIT (2014) and experience in four startups. Work covers systems (internal tools, automations, AI agents), construction (estimating, safety, compliance, procurement), customer success and people (hiring, training, coaching).
 
@@ -9,7 +9,7 @@ Customer success is a core strength: seven years across Customer Success Manager
 ## Main pages
 
 - [Home](https://gld.gldmn.net/): Career register and overview of past roles and work
-- [Services](https://gld.gldmn.net/services.html): Ways to work together: a free 30-minute founder sounding board, tool building and digital innovation, ISO consulting, customer success and retention consulting, strategic consulting, or hiring
+- [Services](https://gld.gldmn.net/services.html): Ways to work together: a free 30-minute founder sounding board, tool building, ISO consulting, customer success and retention consulting, strategic consulting or hiring
 - [About](https://gld.gldmn.net/about.html): Background, startup experience, customer success lifecycle skills, and tools
 - [Contact](https://gld.gldmn.net/contact.html): Send a message about a construction technology problem, a tool, or a project
 
