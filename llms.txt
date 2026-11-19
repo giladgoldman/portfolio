@@ -27,5 +27,6 @@ Customer success is a core strength: seven years across Customer Success Manager
 
 ## Optional
 
+- [Reporting Vault](https://gld.gldmn.net/reporting-vault.html): Keeps the figures from regularly generated reports and consolidates data from the tools in the tech stack so results can be charted over time
 - [Health Tracker](https://gld.gldmn.net/health-tracker.html): A personal food and exercise tracker built in Notion with AI
 - [Sitemap](https://gld.gldmn.net/sitemap.xml)
